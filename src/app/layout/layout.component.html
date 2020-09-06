@@ -1,4 +1,17 @@
-<app-top></app-top>
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div id="wrapper">
+
+  <app-top></app-top>
+
+  <div class="layout-fixed">
+    <app-nav></app-nav>
+  </div>
+
+  <div class="content-wrapper">
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+
+  <app-footer></app-footer>
+
+</div>
