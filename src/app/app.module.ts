@@ -1,3 +1,4 @@
+import { NavComponent } from './layout/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     AppComponent,
     LayoutComponent,
     TopComponent,
+    NavComponent,
     FooterComponent,
   ],
   imports: [
