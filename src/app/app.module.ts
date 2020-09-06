@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TopComponent } from './layout/top/top.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
+    TopComponent,
   ],
   imports: [
     BrowserModule,
