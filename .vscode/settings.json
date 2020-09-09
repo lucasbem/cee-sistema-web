@@ -1,8 +1,11 @@
 {
   "javascript.implicitProjectConfig.experimentalDecorators": true,
   "cSpell.words": [
+    "Overlayscrollbars",
+    "adminlte",
+    "fontawesome",
     "perfil"
-  ],
+],
   // The number of spaces a tab is equal to. This setting is overridden
 // based on the file contents when `editor.detectIndentation` is true.
 "editor.tabSize": 4,
