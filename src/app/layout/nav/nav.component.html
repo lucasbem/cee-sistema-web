@@ -1,118 +1,14 @@
-<p>nav works!</p>
 <!-- * Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-0">
 
-  <!-- * Brand Logo -->
-  <a href="#" class="brand-link text-center">
-      <!-- <img src="../../../public/img/logo-1257x577-alpha3.png" alt="" width="110px" style="margin-left: 20px;"> -->
-      <!-- <img src="../../../public/img/logo-1257x577-alpha3.png" alt="Logo do CEE"
-          class="brand-image elevation-0" style="opacity: .8"> -->
-      <span class="brand-text font-weight-bold">CEE/TO</span>
-  </a>
+  <app-nav-logo></app-nav-logo>
 
-  <!-- * Sidebar -->
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar">
 
-      <!-- * Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 text-center">
-          <!-- <div class="image" *ngIf=""> -->
-              <img  src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image"  *ngIf="">
-          <!-- </div> -->
-          <!-- <div class="info text-white"> -->
-              <i class="fas fa-user-circle fa-2x" *ngIf=""></i>
-              <a href="#" class="d-block"></a>
-          <!-- </div> -->
-      </div>
+    <app-nav-perfil></app-nav-perfil>
 
-      <!-- * Sidebar Menu -->
-      <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar nav-legacy flex-column" data-widget="treeview" role="menu">
+    <app-nav-menu></app-nav-menu>
 
-              <!-- * BOTAO DE LOGIN/LOGOFF -->
-              <li class="nav-item text-center" *ngIf="">
-                  <!-- <a class="nav-link ips-login" routerLink="/login"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a> -->
-                  <a class="nav-link ips-login" data-toggle="modal" data-target="#loginModal"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a>
-              </li>
-              <li class="nav-item text-center" *ngIf="">
-                  <a class="nav-link ips-login"> <i class="nav-icon fa fa-sign-out-alt"></i> LogOut [Sair]</a>
-              </li>
-
-              <!-- * PERFIL -->
-              <li class="nav-item text-center">
-                  <a class="nav-link">
-                  <select class="form-control" name="" id="">
-                      <option value="">Selecione um perfil</option>
-                      <option value=""></option>
-                  </select>
-              </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/home">
-                      <i class="nav-icon fas fa-home"></i>
-                      <p>Home</p>
-                  </a>
-              </li>
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/dashboard"><i class="nav-icon fa fa-tachometer-alt"></i> Dashboard</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/institution"><i class="nav-icon fa fa-angle-double-right"></i> Instituição</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/institution-list"><i class="nav-icon fa fa-angle-double-right"></i> Instituições</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/team.list"><i class="nav-icon fa fa-angle-double-right"></i> Equipes</a>
-              </li>
-
-              <li class="nav-item">&nbsp;</li>
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/instrumentProfile"><i class="nav-icon fa fa-angle-double-right"></i> Acessar instrumentos</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/instrument"><i class="nav-icon fa fa-angle-double-right"></i> Instrumentos</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/dimension.list"><i class="nav-icon fa fa-angle-double-right"></i> Dimensões</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/indicator"><i class="nav-icon fa fa-angle-double-right"></i> Indicadores</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/critery"><i class="nav-icon fa fa-angle-double-right"></i> Critérios</a>
-              </li>
-
-              <li class="nav-item">&nbsp;</li>
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/user"><i class="nav-icon fa fa-angle-double-right"></i> Usuários</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/indicator"><i class="nav-icon fa fa-angle-double-right"></i> Indicadores</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/critery"><i class="nav-icon fa fa-angle-double-right"></i> Critérios</a>
-              </li>
-
-              <li class="nav-item">&nbsp;</li>
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/user"><i class="nav-icon fa fa-angle-double-right"></i> Usuários</a>
-              </li>
-
-              <li class="nav-item" *ngIf="">
-                  <a class="nav-link" routerLink="/settings.list"><i class="nav-icon fa fa-cogs"></i> Configurações</a>
-              </li>
-          </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
   </div>
-  <!-- /.sidebar -->
+
 </aside>
