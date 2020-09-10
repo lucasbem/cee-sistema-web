@@ -1,0 +1,24 @@
+{
+  "user": [
+    {
+      "name": "Emerson Pereira",
+      "level": "Administrador",
+      "id": "vgc0_ew"
+    },
+    {
+      "name": "Ludmilia",
+      "level": "Gerente",
+      "id": "PXSKeJ_"
+    },
+    {
+      "name": "Haroldo Cruz",
+      "password": "123",
+      "email": "msom@msom.com",
+      "level": "Administrador",
+      "id": "niCZuQP"
+    }
+  ],
+  "maintainer": [],
+  "maintained": [],
+  "course": []
+}
