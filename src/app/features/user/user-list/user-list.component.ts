@@ -1,4 +1,5 @@
-import { IUser } from './../user.model';
+
+import { IUser } from './../../../interfaces/User';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,20 +13,23 @@ export class UserListComponent implements OnInit {
 
   userList: IUser[]
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.index();
   }
 
-  index(): void{
-    this.userService.read().subscribe((users)=>{
+  index(): void {
+    this.userService.read().subscribe((users) => {
       this.userList = users;
     });
   }
 
   delete(id): void {
-    this.userService.delete(id).subscribe(()=>{
+    this.userService.delete(id).subscribe(() => {
       this.router.navigate(["/user"]);
     })
   }

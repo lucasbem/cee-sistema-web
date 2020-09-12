@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { IUser } from "./user.model";
+import { IUser } from "./../../interfaces/User";
 import { Observable } from 'rxjs';
+import { ENV } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
 
   users: IUser[];
 
-  baseUrl = "http://localhost:3000/user";
+  baseUrl = `${ENV.api.url}/user`;
 
   private headers = new HttpHeaders({
     // 'Authorization': localStorage.getItem('token'),

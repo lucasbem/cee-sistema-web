@@ -6,6 +6,28 @@ export const environment = {
   production: false
 };
 
+const api = {
+  url: "http://localhost:3000"
+}
+
+const user = {
+  defaultPassword: "1234567890"
+}
+
+const contact = {
+  phone: {
+    ddi: 55,
+    ddd: 63
+  }
+}
+
+export const ENV = {
+  api,
+  user,
+  contact
+}
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

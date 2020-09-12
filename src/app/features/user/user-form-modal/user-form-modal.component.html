@@ -5,8 +5,8 @@
 
       <div class="modal-header">
         <h4 class="modal-title" id="userModalLabel">
-          <span *ngIf="true">Inserir</span>
-          <span *ngIf="true">Alterar</span>
+          <!-- <span *ngIf="user.id">Inserir</span>
+          <span *ngIf="user.id">Alterar</span> -->
         </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
@@ -17,58 +17,110 @@
           <div class="row">
             <div class="col-md-8">
               Nome:
-              <input type="text" ng-model="x.name" class="form-control" placeholder="Digite seu nome completo">
+              <input type="text" [(ngModel)]="x.name" class="form-control" placeholder="Digite seu nome completo">
             </div>
             <div class="col-md-4">
               Perfil:
-              <select id="level" ng-model="x.dataAccess.profiles" ng-options="i for i in profileList track by i"
-                class="form-control"></select>
+              <select id="level" [(ngModel)]="x.dataAccess.profiles" class="form-control">
+                <option value="{{ profile }}" *ngFor="let profile of profileList">{{ profile.name }}</option>
+              </select>
             </div>
             <div class="col-md-6">
               Senha:
-              <input type="text" ng-model="x.password" class="form-control" placeholder="">
-            </div>
-            <div class="col-md-6">
-              CPF:
-              <input type="text" ng-model="x.cpf" class="form-control" placeholder="">
+              <input type="text" [(ngModel)]="x.dataAccess.password" class="form-control" placeholder="">
             </div>
             <div class="col-md-6">
               Repetir senha:
-              <input type="text" ng-model="x.password" class="form-control" placeholder="">
+              <input type="text" [(ngModel)]="x.dataAccess.password" class="form-control" placeholder="">
+            </div>
+            <div class="col-md-6">
+              CPF:
+              <input type="text" [(ngModel)]="x.cpf" class="form-control" placeholder="">
             </div>
             <div class="col-md-6">
               E-mail:
-              <input type="text" ng-change="x.email = x.email.toLowerCase()" ng-model="x.email" class="form-control" />
+              <input type="text" [(ngModel)]="x.contact.email" class="form-control" />
             </div>
-            <div class="col-md-3">
-              DDI (+55 BR):
-              <input type="text" ng-model="x.ddi" class="form-control" placeholder="+55">
+          </div>
+          <div class="row mt-2">
+            <!-- <div class="col-md-2">
+              DDI:
+              <input type="text" disabled [(ngModel)]="x.contact.phone[0].ddi" class="form-control" placeholder="+55">
             </div>
-            <div class="col-md-3">
-              DDD (63 TO):
-              <input type="text" ng-model="x.ddd" class="form-control" placeholder="63">
+            <div class="col-md-2">
+              DDD:
+              <input type="text" disabled [(ngModel)]="x.contact.phone[0].ddd" class="form-control" placeholder="63">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
               Telefone:
-              <input type="text" ng-model="x.phone" class="form-control">
-            </div>
+              <input type="text" disabled [(ngModel)]="x.contact.phone[0].number" class="form-control">
+            </div> -->
             <div class="col-md-12">
-              Descrição:
-              <textarea rows="6" ng-model="x.description" class="form-control"></textarea>
+
+              <div class="list-group">
+
+                <span class="sd-pointer list-group-item text-center text-danger" *ngIf="true">
+                  Nenhum telefone inserido!
+                </span>
+                <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
+                  Inserir outro telefone!
+                </span>
+
+                <!-- <span class="list-group-item" *ngIf="false" *ngFor="let p of phoneList"> -->
+                <span class="list-group-item sd-list-items" *ngIf="true">
+                  <i class="fa fa-angle-double-right"></i> {{ '+55 (63) 98458-9691 (celular)' }}
+                  <span class="sd-pointer sd-trash-float-right">
+                    <!-- <i class="fas fa-trash" (click)="remove(p)"></i> -->
+                    <i class="fas fa-trash"></i>
+                  </span>
+                </span>
+
+              </div>
             </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12">
+
+              <div class="list-group">
+
+                <span class="sd-pointer list-group-item text-center text-danger" *ngIf="true">
+                  Nenhum email inserido!
+                </span>
+                <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
+                  Inserir outro email!
+                </span>
+
+                <!-- <span class="list-group-item" *ngIf="false" *ngFor="let e of emailList"> -->
+                <span class="list-group-item sd-list-items" *ngIf="true">
+                  <i class="fa fa-angle-double-right"></i> {{ 'msom.info@gmail.com (principal)' }}
+                  <span class="sd-pointer sd-trash-float-right">
+                    <!-- <i class="fas fa-trash" (click)="remove(p)"></i> -->
+                    <i class="fas fa-trash"></i>
+                  </span>
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            Descrição:
+            <textarea rows="6" [(ngModel)]="x.description" class="form-control"></textarea>
           </div>
         </div>
       </div>
-
-      <div class="modal-footer">
-        <button type="reset" class="btn btn-default" ng-hide="x._id">Limpar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createUser()"
-          *ngIf="true">Salvar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()"
-          *ngIf="true">Atualizar</button>
-      </div>
-
     </div>
+
+    <div class="modal-footer">
+      <button type="reset" class="btn btn-default" ng-hide="x._id">Limpar</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createUser()"
+        *ngIf="true">Salvar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()"
+        *ngIf="true">Atualizar</button>
+    </div>
+
   </div>
+</div>
 </div>

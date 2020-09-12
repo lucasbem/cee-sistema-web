@@ -1,6 +1,8 @@
+import { IProfile } from './../../../interfaces/Profile';
+import { ProfileService } from './../../../services/profile.service';
 import { UserService } from './../user.service';
-import { Component, OnInit } from '@angular/core';
-import { IUser } from '../user.model';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { IUser, User } from './../../../interfaces/User';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -8,40 +10,55 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './user-form-modal.component.html',
   styleUrls: ['./user-form-modal.component.less']
 })
-export class UserFormModalComponent implements OnInit {
+export class UserFormModalComponent implements OnInit, OnChanges {
 
-  user: IUser = {
-    level: "asldkfj",
-    name: "Lulu"
-  };
+  x: IUser = new User();
+  profileList: IProfile[];
+  user: IUser;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(
+    private userService: UserService,
+    private profileService: ProfileService,
+    private router: Router
+  ) {
+    this.profileService.read().subscribe((profiles)=>{
+      this.profileList = profiles
+    });
+    // this.reloadComponent()
+    console.log(this.x)
+    console.log(this.profileService.profiles)
+  }
 
+  reloadComponent() {
     // override the route reuse strategy
-    this.router.routeReuseStrategy.shouldReuseRoute = function(){
-       return false;
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
     }
 
     this.router.events.subscribe((evt) => {
-       if (evt instanceof NavigationEnd) {
-          // trick the Router into believing it's last link wasn't previously loaded
-          this.router.navigated = false;
-          // if you need to scroll back to top, here is the right place
-          window.scrollTo(0, 0);
-       }
-   });
+      if (evt instanceof NavigationEnd) {
+        // trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+        // if you need to scroll back to top, here is the right place
+        // window.scrollTo(0, 0);
+      }
+    });
   }
 
   ngOnInit(): void {
   }
 
-  createUser(): void{
-    this.userService.create(this.user).subscribe(()=>{
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes.profileList.currentValue)
+  }
+
+  createUser(): void {
+    this.userService.create(this.user).subscribe(() => {
       this.router.navigate(["/user"]);
     });
   }
-  updateUser(): void{
-    this.userService.update(this.user).subscribe(()=>{
+  updateUser(): void {
+    this.userService.update(this.user).subscribe(() => {
     });
   }
 

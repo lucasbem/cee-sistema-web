@@ -1,0 +1,28 @@
+[
+    {
+        "type": "Group",
+        "name": "services",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "zUtejVdDHXf5Wum7"
+    },
+    {
+        "type": "File",
+        "name": "c:\\MSOM\\PROJECTS\\cee-sistema\\web\\src\\app\\services\\profile.service.ts",
+        "parent_id": "zUtejVdDHXf5Wum7",
+        "fsPath": "c:\\MSOM\\PROJECTS\\cee-sistema\\web\\src\\app\\services\\profile.service.ts",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "8t1Zm53sEnWM0OlX"
+    },
+    {
+        "type": "File",
+        "name": "c:\\MSOM\\PROJECTS\\cee-sistema\\web\\src\\app\\features\\user\\user.service.ts",
+        "parent_id": "zUtejVdDHXf5Wum7",
+        "fsPath": "c:\\MSOM\\PROJECTS\\cee-sistema\\web\\src\\app\\features\\user\\user.service.ts",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "lZyiuOgz3IahfwBL"
+    }
+]
