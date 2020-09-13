@@ -1,6 +1,7 @@
 {
   "javascript.implicitProjectConfig.experimentalDecorators": true,
   "cSpell.words": [
+<<<<<<< HEAD
     "CASADO",
     "CELULAR",
     "COMERCIAL",
@@ -15,6 +16,12 @@
     "VIUVO",
     "perfil",
     "zipcode"
+=======
+    "Overlayscrollbars",
+    "adminlte",
+    "fontawesome",
+    "perfil"
+>>>>>>> features/home
 ],
   // The number of spaces a tab is equal to. This setting is overridden
 // based on the file contents when `editor.detectIndentation` is true.
