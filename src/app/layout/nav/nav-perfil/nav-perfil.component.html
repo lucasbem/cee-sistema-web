@@ -28,7 +28,7 @@
       <a class="nav-link">
         <select class="form-control" name="" id="">
           <option value="">Selecione um perfil</option>
-          <option value=""></option>
+          <option [value]="" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
         </select>
       </a>
     </li>
