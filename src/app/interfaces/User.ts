@@ -8,9 +8,9 @@ export interface IUser {
   "name": string;
   "cpf": number;
   "rg"?: IRg;
-  "gender"?: GenderEnum; //enum [masculino, feminino]
-  "maritalStatus"?: MaritalStatusEnum; //enum [solteiro(a), casado(a), ...]
-  "status": StatusEnum; //enum [0, 1]
+  "gender"?: string; //enum [masculino, feminino]
+  "maritalStatus"?: string; //enum [solteiro(a), casado(a), ...]
+  "status": string; //enum [0, 1]
   "contact"?: IContact;
   "loginInfo"?: ILoginInfo;
   "dataAccess": IDataAccess;
@@ -20,6 +20,7 @@ export interface IUser {
 export enum GenderEnum {
   FEMININO = "Feminino",
   MASCULINO = "Masculino",
+  UNINFORMED = "Não informado",
 }
 
 export enum MaritalStatusEnum {
@@ -51,9 +52,12 @@ export interface IDataAccess {
 
 export class User implements IUser {
 
-  status: StatusEnum.INACTIVE
   name: string;
   cpf: number;
+  description: string;
+
+  status = StatusEnum.INACTIVE;
+  gender = GenderEnum.UNINFORMED;
 
   dataAccess = {
     username: (new Date().getTime()).toString(),
@@ -69,13 +73,8 @@ export class User implements IUser {
     }],
     address: []
   }
-  "description": string;
 
-  constructor() {
-    // token.generate(new Date).then((data)=>{
-    //   this.dataAccess.username = data;
-    // });
-  }
+  constructor() {}
 
 }
 
