@@ -21,8 +21,21 @@
             </div>
             <div class="col-md-4">
               Perfil:
-              <select id="level" [(ngModel)]="x.dataAccess.profiles" class="form-control">
-                <option value="{{ profile }}" *ngFor="let profile of profileList">{{ profile.name }}</option>
+              <select id="profile" [(ngModel)]="x.dataAccess.profiles" class="form-control">
+                <option value="{{ profile }}" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              Status:
+              <select id="status" [(ngModel)]="x.status" class="form-control">
+                <option [value]="status" *ngFor="let status of statusList">{{ status }}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              Gênero:
+              <select id="gender" [(ngModel)]="x.gender" class="form-control">
+                <option [value]="gender" *ngFor="let gender of genderList">{{ gender }}</option>
               </select>
             </div>
             <div class="col-md-6">

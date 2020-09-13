@@ -9,15 +9,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of userList; let i = index">
+    <!-- <tr *ngFor="let user of userList; let i = index"> -->
+    <tr *ngFor="let user of userService.users; let i = index">
       <th scope="row">{{ i+1 }}</th>
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.level }}</td>
       <td>
-        <i class="fas fa-edit"></i>
+        <i class="fas fa-edit sd-pointer"></i>
         &nbsp;
-        <i class="fas fa-trash" (click)="delete(user.id)"></i>
+        <i class="fas fa-trash sd-pointer" (click)="delete(user.id)"></i>
       </td>
     </tr>
   </tbody>

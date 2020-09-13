@@ -1,8 +1,9 @@
+import { StatusEnum } from './../../../interfaces/Status';
 import { IProfile } from './../../../interfaces/Profile';
 import { ProfileService } from './../../../services/profile.service';
 import { UserService } from './../user.service';
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { IUser, User } from './../../../interfaces/User';
+import { IUser, User, GenderEnum } from './../../../interfaces/User';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -10,23 +11,20 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './user-form-modal.component.html',
   styleUrls: ['./user-form-modal.component.less']
 })
-export class UserFormModalComponent implements OnInit, OnChanges {
+export class UserFormModalComponent implements OnInit {
 
-  x: IUser = new User();
-  profileList: IProfile[];
+  x: IUser;
   user: IUser;
+  profileList: IProfile[];
+  statusList: string[];
+  genderList: string[];
 
   constructor(
     private userService: UserService,
-    private profileService: ProfileService,
+    public profileService: ProfileService,
     private router: Router
   ) {
-    this.profileService.read().subscribe((profiles)=>{
-      this.profileList = profiles
-    });
-    // this.reloadComponent()
-    console.log(this.x)
-    console.log(this.profileService.profiles)
+    this.reloadComponent()
   }
 
   reloadComponent() {
@@ -40,25 +38,26 @@ export class UserFormModalComponent implements OnInit, OnChanges {
         // trick the Router into believing it's last link wasn't previously loaded
         this.router.navigated = false;
         // if you need to scroll back to top, here is the right place
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
       }
     });
   }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.profileList.currentValue)
+    this.x = new User();
+    this.statusList = Object.values(StatusEnum)
+    this.genderList = Object.values(GenderEnum)
   }
 
   createUser(): void {
-    this.userService.create(this.user).subscribe(() => {
-      this.router.navigate(["/user"]);
+    this.userService.create(this.x).subscribe(() => {
+      this.userService.index();
     });
   }
+
   updateUser(): void {
-    this.userService.update(this.user).subscribe(() => {
+    this.userService.update(this.x).subscribe(() => {
+      this.userService.index();
     });
   }
 

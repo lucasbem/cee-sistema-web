@@ -14,23 +14,19 @@ export class UserListComponent implements OnInit {
   userList: IUser[]
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.index();
-  }
+  ngOnInit(): void { }
 
   index(): void {
-    this.userService.read().subscribe((users) => {
-      this.userList = users;
-    });
+    this.userService.index();
   }
 
   delete(id): void {
-    this.userService.delete(id).subscribe(() => {
-      this.router.navigate(["/user"]);
+    this.userService.delete(id).subscribe((data) => {
+      this.userService.index();
     })
   }
 

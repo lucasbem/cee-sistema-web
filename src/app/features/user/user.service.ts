@@ -19,31 +19,45 @@ export class UserService {
   });
 
   constructor(private http: HttpClient) {
+    this.index();
+  }
 
-    this.read().subscribe((data)=>{
+  index() {
+    this.read().subscribe((data) => {
       this.users = data;
     })
   }
 
+  // create(user: IUser): void {
+  //   this.http.post<IUser>(this.baseUrl, user).subscribe(() => {
+  //     this.index();
+  //   });
+  // }
   create(user: IUser): Observable<IUser>{
     return this.http.post<IUser>(this.baseUrl, user);
   }
 
-  read(): Observable<IUser[]>{
+  read(): Observable<IUser[]> {
     return this.http.get<IUser[]>(this.baseUrl, { headers: this.headers });
   }
 
-  readById(id: string): Observable<IUser>{
+  readById(id: string): Observable<IUser> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<IUser>(url);
   }
 
-  update(user: IUser): Observable<IUser>{
+  update(user: IUser): Observable<IUser> {
     const url = `${this.baseUrl}/${user.id}`
     return this.http.post<IUser>(url, user);
   }
 
-  delete(id: string): Observable<IUser>{
+  // delete(id: string): void {
+  //   const url = `${this.baseUrl}/${id}`;
+  //   this.http.delete<IUser>(url).subscribe(()=>{
+  //     this.index();
+  //   });
+  // }
+  delete(id: string): Observable<IUser> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<IUser>(url);
   }
