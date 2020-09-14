@@ -37,12 +37,16 @@ export interface IRg {
   uf: string;
 }
 
+class Rg {}
+
 
 export interface ILoginInfo {
   "token": string;
   "providerId": string;
   "providerKey": string;
 }
+
+class LoginInfo{}
 
 export interface IDataAccess {
   "username"?: string;
@@ -59,12 +63,14 @@ export class User implements IUser {
   status = StatusEnum.INACTIVE;
   gender = GenderEnum.UNINFORMED;
 
+  // dataAccess = {} as IDataAccess;
   dataAccess = {
     username: (new Date().getTime()).toString(),
     password: ENV.user.defaultPassword,
     profiles: [] as Array<IProfile>
   };
 
+  // contact = {} as IContact;
   contact: IContact = {
     email: [],
     phone: [{

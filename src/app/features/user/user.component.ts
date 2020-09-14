@@ -1,5 +1,5 @@
 import { UserService } from './user.service';
-import { IUser } from './../../interfaces/User';
+import { IUser, User } from './../../interfaces/User';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
 
   userList: IUser[]
+  // filtro: string;
 
-  constructor(private userService: UserService) {
-    this.userList = userService.users;
+  constructor(public userService: UserService) {}
+
+  ngOnInit(): void {}
+
+  edit(user: IUser | null){
+    this.userService.user = (user) ? user : new User();
   }
-
-  ngOnInit(): void {
-  }
-
-  edit(user: IUser){}
 
 }

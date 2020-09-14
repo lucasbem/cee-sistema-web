@@ -11,6 +11,8 @@ import { UserComponent } from './features/user/user.component';
 import { UserFormModalComponent } from './features/user/user-form-modal/user-form-modal.component';
 import { UserListComponent } from './features/user/user-list/user-list.component';
 
+import { PipesModule } from "w-ng5";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { UserListComponent } from './features/user/user-list/user-list.component
     AppRoutingModule,
     LayoutModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

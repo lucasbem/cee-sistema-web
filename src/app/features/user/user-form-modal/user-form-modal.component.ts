@@ -13,18 +13,15 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class UserFormModalComponent implements OnInit {
 
-  x: IUser;
-  user: IUser;
-  profileList: IProfile[];
   statusList: string[];
   genderList: string[];
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     public profileService: ProfileService,
     private router: Router
   ) {
-    this.reloadComponent()
+    // this.reloadComponent()
   }
 
   reloadComponent() {
@@ -44,19 +41,19 @@ export class UserFormModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.x = new User();
+    // this.x = this.userService.user || new User();
     this.statusList = Object.values(StatusEnum)
     this.genderList = Object.values(GenderEnum)
   }
 
-  createUser(): void {
-    this.userService.create(this.x).subscribe(() => {
+  create(): void {
+    this.userService.create(this.userService.user).subscribe(() => {
       this.userService.index();
     });
   }
 
-  updateUser(): void {
-    this.userService.update(this.x).subscribe(() => {
+  update(): void {
+    this.userService.update(this.userService.user).subscribe(() => {
       this.userService.index();
     });
   }

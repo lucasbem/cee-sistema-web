@@ -1,24 +1,29 @@
-<table class="table table-hover table-dark">
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">email</th>
-      <th scope="col">Grupo</th>
-      <th scope="col">Ação</th>
+      <th scope="col" class="text-center">#</th>
+      <th scope="col" class="text-center">Status</th>
+      <th scope="col" class="text-center">Nome</th>
+      <th scope="col" class="text-center">email</th>
+      <th scope="col" class="text-center">Grupos</th>
+      <th scope="col" class="text-center">Ação</th>
     </tr>
   </thead>
   <tbody>
     <!-- <tr *ngFor="let user of userList; let i = index"> -->
-    <tr *ngFor="let user of userService.users; let i = index">
-      <th scope="row">{{ i+1 }}</th>
+    <tr *ngFor="let user of userService.users | filter: [{field: 'name', value: userService.filtro}]; let i = index">
+      <td scope="row" class="text-center sd-wfr">{{ i + 1 }}</td>
+      <td class="text-center sd-wfr">
+        <i class="fas fa-check-circle text-green" *ngIf="(user.status | lowercase) == 'ativo'" title="ativo"></i>
+        <i class="fas fa-times-circle text-red" *ngIf="(user.status | lowercase) == 'inativo'" title="inativo"></i>
+      </td>
       <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
+      <td>{{ user.contact.email }}</td>
       <td>{{ user.level }}</td>
-      <td>
-        <i class="fas fa-edit sd-pointer"></i>
+      <td class="text-center sd-wf">
+        <i class="fas fa-edit sd-pointer text-primary" data-toggle="modal" data-target="#userModal" (click)="edit(user)"></i>
         &nbsp;
-        <i class="fas fa-trash sd-pointer" (click)="delete(user.id)"></i>
+        <i class="fas fa-trash-alt sd-pointer text-danger" (click)="delete(user.id)"></i>
       </td>
     </tr>
   </tbody>
