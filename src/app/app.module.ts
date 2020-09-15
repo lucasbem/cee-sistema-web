@@ -12,6 +12,7 @@ import { UserFormModalComponent } from './features/user/user-form-modal/user-for
 import { UserListComponent } from './features/user/user-list/user-list.component';
 
 import { PipesModule } from "w-ng5";
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PipesModule } from "w-ng5";
     UserComponent,
     UserFormModalComponent,
     UserListComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,

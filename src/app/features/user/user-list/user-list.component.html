@@ -4,21 +4,21 @@
       <th scope="col" class="text-center">#</th>
       <th scope="col" class="text-center">Status</th>
       <th scope="col" class="text-center">Nome</th>
-      <th scope="col" class="text-center">email</th>
+      <th scope="col" class="text-center">E-Mail</th>
       <th scope="col" class="text-center">Grupos</th>
       <th scope="col" class="text-center">Ação</th>
     </tr>
   </thead>
   <tbody>
     <!-- <tr *ngFor="let user of userList; let i = index"> -->
-    <tr *ngFor="let user of userService.users | filter: [{field: 'name', value: userService.filtro}]; let i = index">
+    <tr *ngFor="let user of userService.users | filter: [{field: 'name', value: userService.filtro}] | sortBy:'asc':'status, name'; let i = index">
       <td scope="row" class="text-center sd-wfr">{{ i + 1 }}</td>
       <td class="text-center sd-wfr">
         <i class="fas fa-check-circle text-green" *ngIf="(user.status | lowercase) == 'ativo'" title="ativo"></i>
         <i class="fas fa-times-circle text-red" *ngIf="(user.status | lowercase) == 'inativo'" title="inativo"></i>
       </td>
       <td>{{ user.name }}</td>
-      <td>{{ user.contact?.email }}</td>
+      <td class="text-center sd-wfr">{{ user.contact?.email }}</td>
       <td>{{ user.level }}</td>
       <td class="text-center sd-wf">
         <i class="fas fa-edit sd-pointer text-primary" data-toggle="modal" data-target="#userModal" (click)="userService.edit(user)"></i>
