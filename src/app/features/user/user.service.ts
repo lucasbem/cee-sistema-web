@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { IUser } from "./../../interfaces/User";
+import { IUser, User } from "./../../interfaces/User";
 import { Observable } from 'rxjs';
 import { ENV } from 'src/environments/environment';
 
@@ -9,7 +9,9 @@ import { ENV } from 'src/environments/environment';
 })
 export class UserService {
 
+  user: IUser;
   users: IUser[];
+  filtro: string;
 
   baseUrl = `${ENV.api.url}/user`;
 
@@ -20,6 +22,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.index();
+    this.user = new User();
   }
 
   index() {
@@ -28,11 +31,10 @@ export class UserService {
     })
   }
 
-  // create(user: IUser): void {
-  //   this.http.post<IUser>(this.baseUrl, user).subscribe(() => {
-  //     this.index();
-  //   });
-  // }
+  edit(user: IUser | null){
+    this.user = (user) ? user : new User();
+  }
+
   create(user: IUser): Observable<IUser>{
     return this.http.post<IUser>(this.baseUrl, user);
   }
@@ -48,15 +50,9 @@ export class UserService {
 
   update(user: IUser): Observable<IUser> {
     const url = `${this.baseUrl}/${user.id}`
-    return this.http.post<IUser>(url, user);
+    return this.http.put<IUser>(url, user);
   }
 
-  // delete(id: string): void {
-  //   const url = `${this.baseUrl}/${id}`;
-  //   this.http.delete<IUser>(url).subscribe(()=>{
-  //     this.index();
-  //   });
-  // }
   delete(id: string): Observable<IUser> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<IUser>(url);

@@ -1,5 +1,5 @@
 
-import { IUser } from './../../../interfaces/User';
+import { IUser, User } from './../../../interfaces/User';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
-  userList: IUser[]
+  // userList: IUser[]
+  // filtro: string;
 
   constructor(
     public userService: UserService,
@@ -22,6 +23,10 @@ export class UserListComponent implements OnInit {
 
   index(): void {
     this.userService.index();
+  }
+
+  edit(user: IUser | null){
+    this.userService.user = (user) ? user : new User();
   }
 
   delete(id): void {

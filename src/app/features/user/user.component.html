@@ -18,7 +18,8 @@
             <span><i class="fa fa-filter"></i></span>
           </div>
         </div>
-        <input class="form-control" type="text" ng-model="filtro" placeholder="Filtrar">
+        <input id="search-box" class="form-control" type="text" [(ngModel)]="filtro" placeholder="Filtrar">
+        <input type="hidden" [value]="userService.filtro">
       </div>
 
     </div>

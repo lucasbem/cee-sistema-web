@@ -11,19 +11,24 @@ import { UserComponent } from './features/user/user.component';
 import { UserFormModalComponent } from './features/user/user-form-modal/user-form-modal.component';
 import { UserListComponent } from './features/user/user-list/user-list.component';
 
+import { PipesModule } from "w-ng5";
+import { SortByPipe } from './pipes/sort-by.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserFormModalComponent,
     UserListComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
