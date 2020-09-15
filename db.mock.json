@@ -1,24 +1,63 @@
 {
   "user": [
     {
-      "name": "Emerson Pereira",
-      "level": "Administrador",
-      "id": "vgc0_ew"
+      "status": "Ativo",
+      "gender": "Masculino",
+      "dataAccess": {
+        "username": "1599974485158",
+        "password": "1234567890",
+        "profiles": []
+      },
+      "contact": {
+        "email": "wcruz.info@gmail.com",
+        "phone": [
+          {
+            "ddi": 55,
+            "ddd": 63
+          }
+        ],
+        "address": []
+      },
+      "name": "Jose Washington Pereira da Cruz",
+      "id": 3
     },
     {
-      "name": "Ludmilia",
-      "level": "Gerente",
-      "id": "PXSKeJ_"
-    },
-    {
-      "name": "Haroldo Cruz",
-      "password": "123",
-      "email": "msom@msom.com",
-      "level": "Administrador",
-      "id": "niCZuQP"
+      "status": "Ativo",
+      "gender": "Feminino",
+      "dataAccess": {
+        "username": "1599974839445",
+        "password": "1234567890",
+        "profiles": []
+      },
+      "contact": {
+        "email": "jacylima85@gmail.com",
+        "phone": [
+          {
+            "ddi": 55,
+            "ddd": 63
+          }
+        ],
+        "address": []
+      },
+      "name": "Maria Jacy de Sousa Lima",
+      "id": 4
     }
   ],
   "maintainer": [],
   "maintained": [],
-  "course": []
+  "course": [],
+  "profile": [
+    {
+      "name": "Administrador"
+    },
+    {
+      "name": "Anônimo"
+    },
+    {
+      "name": "Gerente"
+    },
+    {
+      "name": "Procurador"
+    }
+  ]
 }
