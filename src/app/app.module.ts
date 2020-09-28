@@ -13,6 +13,10 @@ import { UserListComponent } from './features/user/user-list/user-list.component
 
 import { PipesModule } from "w-ng5";
 import { SortByPipe } from './pipes/sort-by.pipe';
+import { InstitutionComponent } from './features/institution/institution.component';
+import { MaintainedComponent } from './src/app/features/institution/maintained/maintained.component';
+import { MaintainerComponent } from './src/app/features/institution/maintainer/maintainer.component';
+import { CourseComponent } from './src/app/features/institution/course/course.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { SortByPipe } from './pipes/sort-by.pipe';
     UserFormModalComponent,
     UserListComponent,
     SortByPipe,
+    InstitutionComponent,
+    MaintainedComponent,
+    MaintainerComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,

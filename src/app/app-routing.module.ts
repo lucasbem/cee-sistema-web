@@ -6,14 +6,26 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './features/home/home.component';
 import { UserComponent } from './features/user/user.component';
 
+import { InstitutionComponent } from './features/institution/institution.component';
+import { MaintainedComponent } from './src/app/features/institution/maintained/maintained.component';
+import { MaintainerComponent } from './src/app/features/institution/maintainer/maintainer.component';
+import { CourseComponent } from './src/app/features/institution/course/course.component';
+
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {
-    path: "",
-    component: LayoutComponent,
-    children: [
+    path: "", component: LayoutComponent, children: [
       { path: "home", component: HomeComponent },
-      { path: "user", component: UserComponent }
+      { path: "user", component: UserComponent },
+      { path: "institution", component: InstitutionComponent },
+      {
+        path: "institution", component: InstitutionComponent,
+        children: [
+          { path: "maintained", component: MaintainedComponent },
+          { path: "maintainer", component: MaintainerComponent },
+          { path: "course", component: CourseComponent },
+        ]
+      }
     ]
   }
 ];
