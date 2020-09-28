@@ -1,34 +1,45 @@
-<!-- * Sidebar user panel (optional) -->
+<!-- * SIDEBAR USER PANEL -->
 <div class="user-panel mt-3 pb-3 mb-3 text-center">
-  <!-- <div class="image" *ngIf=""> -->
-  <img src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image" *ngIf="">
-  <!-- </div> -->
-  <!-- <div class="info text-white"> -->
-  <i class="fas fa-user-circle fa-3x"></i>
-  <a href="#" class="d-block">Anônimo</a>
-  <!-- </div> -->
+
+  <div *ngIf="userService.user.id">
+    <img src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image">
+    <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a>
+  </div>
+
+  <div *ngIf="!userService.user.id">
+    <i class="fas fa-user-circle fa-3x" *ngIf="!userService.user.id"></i>
+    <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a>
+  </div>
+
 </div>
 
-<!-- * Sidebar Menu -->
+<!-- * SIDEBAR MENU -->
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar nav-legacy flex-column" data-widget="treeview" role="menu">
 
-    <!-- * BOTAO DE LOGIN/LOGOFF -->
-    <li class="nav-item text-center">
+    <!-- * BUTTON LOGIN -->
+    <li class="nav-item text-center" *ngIf="!userService.user.id">
       <!-- <a class="nav-link ips-login" routerLink="/login"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a> -->
-      <a class="nav-link ips-logon" data-toggle="modal" data-target="#loginModal"> <i
-          class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a>
-    </li>
-    <li class="nav-item text-center" *ngIf="">
-      <a class="nav-link ips-logon"> <i class="nav-icon fa fa-sign-out-alt"></i> LogOut [Sair]</a>
+      <a class="nav-link ips-logon" data-toggle="modal" data-target="#loginModal">
+        <i class="nav-icon fa fa-sign-in-alt"></i>
+        LogIn [Entrar]
+      </a>
     </li>
 
-    <!-- * PERFIL -->
+    <!-- * BUTTON LOGOUT -->
+    <li class="nav-item text-center" *ngIf="userService.user.id">
+      <a class="nav-link ips-logon">
+        <i class="nav-icon fa fa-sign-out-alt"></i>
+        LogOut [Sair]
+      </a>
+    </li>
+
+    <!-- * PROFILE OPTIONS -->
     <li class="nav-item text-center">
       <a class="nav-link">
-        <select class="form-control" name="" id="">
-          <option value="">Selecione um perfil</option>
-          <option value=""></option>
+        <select class="form-control" [(ngModel)]="userService.currentProfile">
+          <!-- <option value="">Selecione um perfil</option> -->
+          <option [ngValue]="profile" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
         </select>
       </a>
     </li>
