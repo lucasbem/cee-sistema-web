@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NavPerfilComponent } from './nav/nav-perfil/nav-perfil.component';
 import { AppRoutingModule } from './../app-routing.module';
 import { LayoutComponent } from './layout.component';
@@ -23,6 +24,7 @@ import { NavMenuComponent } from './nav/nav-menu/nav-menu.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AppRoutingModule
   ]
 })

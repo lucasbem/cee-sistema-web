@@ -1,3 +1,4 @@
+import { UserService } from './../../../features/user/user.service';
 import { ProfileService } from './../../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavPerfilComponent implements OnInit {
 
-  constructor(public profileService: ProfileService) { }
+  profileIndex: number = 0;
+
+  constructor(public profileService: ProfileService, public userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  change(idx: any){
+    console.log(idx)
   }
 
 }

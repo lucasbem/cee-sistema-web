@@ -67,7 +67,8 @@ export class User implements IUser {
   dataAccess = {
     username: (new Date().getTime()).toString(),
     password: ENV.user.defaultPassword,
-    profiles: [] as Array<IProfile>
+    profiles: [{id:'asdf', name: 'Anônimo'}] as Array<IProfile>
+    // profiles: [] as Array<IProfile>
   };
 
   // contact = {} as IContact;
@@ -75,7 +76,8 @@ export class User implements IUser {
     email: [],
     phone: [{
       ddi: ENV.contact.phone.ddi,
-      ddd: ENV.contact.phone.ddd
+      ddd: ENV.contact.phone.ddd,
+      // number: ENV.contact.phone.number
     }],
     address: []
   }

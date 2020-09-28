@@ -17,7 +17,8 @@ const user = {
 const contact = {
   phone: {
     ddi: 55,
-    ddd: 63
+    ddd: 63,
+    number: 988887777
   }
 }
 

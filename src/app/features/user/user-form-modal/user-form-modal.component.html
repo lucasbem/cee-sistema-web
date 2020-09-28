@@ -22,7 +22,7 @@
             <div class="col-md-4">
               Perfil:
               <select id="profile" [(ngModel)]="userService.user.dataAccess.profiles" class="form-control">
-                <option value="{{ profile }}" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
+                <option [ngValue]="profile" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
               </select>
             </div>
 

@@ -1,9 +1,8 @@
 import { StatusEnum } from './../../../interfaces/Status';
-import { IProfile } from './../../../interfaces/Profile';
-import { ProfileService } from './../../../services/profile.service';
+import { GenderEnum } from './../../../interfaces/User';
 import { UserService } from './../user.service';
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { IUser, User, GenderEnum } from './../../../interfaces/User';
+import { ProfileService } from './../../../services/profile.service';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({

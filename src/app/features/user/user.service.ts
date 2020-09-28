@@ -1,14 +1,22 @@
+import { IProfile } from './../../interfaces/Profile';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IUser, User } from "./../../interfaces/User";
 import { Observable } from 'rxjs';
 import { ENV } from 'src/environments/environment';
 
+interface IUserDataLogin {
+  cpf?: number;
+  email?: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  currentProfile: IProfile;
   user: IUser;
   users: IUser[];
   filtro: string;
@@ -16,6 +24,7 @@ export class UserService {
   baseUrl = `${ENV.api.url}/user`;
 
   private headers = new HttpHeaders({
+    //TODO
     // 'Authorization': localStorage.getItem('token'),
     // 'Content-Type': 'application/json'
   });
@@ -29,6 +38,24 @@ export class UserService {
     this.read().subscribe((data) => {
       this.users = data;
     })
+  }
+
+  login(userDataLogin: IUserDataLogin): Observable<IUser>{
+    const url = `${this.baseUrl}/login`;
+    return this.http.post<IUser>(url, userDataLogin, { headers: this.headers });
+  }
+
+  logout(id: string): Observable<IUser>{
+    const url = `${this.baseUrl}/logoff/${id}`;
+    return this.http.get<IUser>(url, { headers: this.headers });
+  }
+
+  logon(userDataLogin: IUserDataLogin): Observable<IUser>{
+    return //TODO implement
+  }
+
+  logoff(id: string): Observable<IUser>{
+    return //TODO implement
   }
 
   edit(user: IUser | null){
