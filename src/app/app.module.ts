@@ -21,22 +21,24 @@ import { CourseComponent } from './src/app/features/institution/course/course.co
 @NgModule({
   declarations: [
     AppComponent,
+    CourseComponent,
+    InstitutionComponent,
+    MaintainedComponent,
+    MaintainerComponent,
     UserComponent,
     UserFormModalComponent,
     UserListComponent,
     SortByPipe,
-    InstitutionComponent,
-    MaintainedComponent,
-    MaintainerComponent,
-    CourseComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    LayoutModule,
+    BrowserModule,
     HttpClientModule,
     FormsModule,
-    PipesModule
+
+    PipesModule,
+
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

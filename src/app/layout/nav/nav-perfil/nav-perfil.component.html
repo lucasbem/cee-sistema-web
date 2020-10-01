@@ -2,13 +2,16 @@
 <div class="user-panel mt-3 pb-3 mb-3 text-center">
 
   <div *ngIf="userService.user.id">
-    <img src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image">
-    <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a>
+    <i class="fas fa-user-circle fa-3x"></i>
+    <!-- <img src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image"> -->
+    <a href="#" class="d-block">{{ userService.user.name.match(firstName)[1]+' '+ userService.user.name.match(lastName)[1]}}</a>
+    <!-- <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a> -->
   </div>
 
   <div *ngIf="!userService.user.id">
-    <i class="fas fa-user-circle fa-3x" *ngIf="!userService.user.id"></i>
-    <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a>
+    <i class="fas fa-user-circle fa-3x"></i>
+    <a href="#" class="d-block">{{ userService.user.name }}</a>
+    <!-- <a href="#" class="d-block">{{ userService.user.dataAccess.profiles[profileIndex]?.name }}</a> -->
   </div>
 
 </div>
@@ -20,14 +23,14 @@
     <!-- * BUTTON LOGIN -->
     <li class="nav-item text-center" *ngIf="!userService.user.id">
       <!-- <a class="nav-link ips-login" routerLink="/login"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a> -->
-      <a class="nav-link ips-logon" data-toggle="modal" data-target="#loginModal">
+      <a class="nav-link ips-logon" data-toggle="modal" data-target="#authListModal">
         <i class="nav-icon fa fa-sign-in-alt"></i>
         LogIn [Entrar]
       </a>
     </li>
 
     <!-- * BUTTON LOGOUT -->
-    <li class="nav-item text-center" *ngIf="userService.user.id">
+    <li class="nav-item text-center" *ngIf="userService.user.id" (click)="logOut()">
       <a class="nav-link ips-logon">
         <i class="nav-icon fa fa-sign-out-alt"></i>
         LogOut [Sair]

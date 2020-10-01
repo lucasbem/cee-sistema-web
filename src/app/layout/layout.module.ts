@@ -1,3 +1,4 @@
+import { AuthModule } from './../auth/auth.module';
 import { FormsModule } from '@angular/forms';
 import { NavPerfilComponent } from './nav/nav-perfil/nav-perfil.component';
 import { AppRoutingModule } from './../app-routing.module';
@@ -9,8 +10,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavLogoComponent } from './nav/nav-logo/nav-logo.component';
 import { NavMenuComponent } from './nav/nav-menu/nav-menu.component';
-
-
 
 @NgModule({
   declarations: [
@@ -25,7 +24,9 @@ import { NavMenuComponent } from './nav/nav-menu/nav-menu.component';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    AuthModule
   ]
 })
 export class LayoutModule { }
