@@ -1,36 +1,30 @@
-import { InstitutionModule } from './features/institution/institution.module';
-import { LayoutModule } from './layout/layout.module';
-import { AppRoutingModule } from './app-routing.module';
-
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './features/user/user.component';
-import { UserFormModalComponent } from './features/user/user-form-modal/user-form-modal.component';
-import { UserListComponent } from './features/user/user-list/user-list.component';
 
-import { PipesModule } from "w-ng5";
-import { SortByPipe } from './pipes/sort-by.pipe';
+import { AuthModule } from './auth/auth.module';
+import { LayoutModule } from './layout/layout.module';
+import { UserModule } from './features/user/user.module';
+import { InstitutionModule } from './features/institution/institution.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserComponent,
-    UserFormModalComponent,
-    UserListComponent,
-    SortByPipe,
+    AppComponent
   ],
   imports: [
-    AppRoutingModule,
-    HttpClientModule,
+    BrowserModule,
     FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
 
-    PipesModule,
-
-    LayoutModule
+    AuthModule,
+    LayoutModule,
+    UserModule,
+    InstitutionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
