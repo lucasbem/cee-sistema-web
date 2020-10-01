@@ -6,13 +6,19 @@ import { MaintainerComponent } from './maintainer/maintainer.component';
 import { MaintainedComponent } from './maintained/maintained.component';
 import { CourseComponent } from './course/course.component';
 import { InstitutionComponent } from './institution.component';
+import { ProcuratorComponent } from './procurator/procurator.component';
+import { AuxiliaryComponent } from './auxiliary/auxiliary.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     InstitutionComponent,
     CourseComponent,
     MaintainedComponent,
-    MaintainerComponent
+    MaintainerComponent,
+    ProcuratorComponent,
+    AuxiliaryComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

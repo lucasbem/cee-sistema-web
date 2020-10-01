@@ -1,4 +1,7 @@
 import { GroupComponent } from './features/group/group.component';
+import { DashboardComponent } from './features/institution/dashboard/dashboard.component';
+import { AuxiliaryComponent } from './features/institution/auxiliary/auxiliary.component';
+import { ProcuratorComponent } from './features/institution/procurator/procurator.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,9 +24,12 @@ const routes: Routes = [
       {
         path: "institution", component: InstitutionComponent,
         children: [
+          { path: "dashboard", component: DashboardComponent },
           { path: "maintained", component: MaintainedComponent },
           { path: "maintainer", component: MaintainerComponent },
           { path: "course", component: CourseComponent },
+          { path: "procurator", component: ProcuratorComponent },
+          { path: "auxiliary", component: AuxiliaryComponent },
         ]
       },
       { path: "user", component: UserComponent },
