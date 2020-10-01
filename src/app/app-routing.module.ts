@@ -7,9 +7,9 @@ import { HomeComponent } from './features/home/home.component';
 import { UserComponent } from './features/user/user.component';
 
 import { InstitutionComponent } from './features/institution/institution.component';
-import { MaintainedComponent } from './src/app/features/institution/maintained/maintained.component';
-import { MaintainerComponent } from './src/app/features/institution/maintainer/maintainer.component';
-import { CourseComponent } from './src/app/features/institution/course/course.component';
+import { MaintainedComponent } from './features/institution/maintained/maintained.component';
+import { MaintainerComponent } from './features/institution/maintainer/maintainer.component';
+import { CourseComponent } from './features/institution/course/course.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },

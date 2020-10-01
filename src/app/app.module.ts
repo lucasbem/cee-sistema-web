@@ -1,3 +1,4 @@
+import { InstitutionModule } from './features/institution/institution.module';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,18 +14,10 @@ import { UserListComponent } from './features/user/user-list/user-list.component
 
 import { PipesModule } from "w-ng5";
 import { SortByPipe } from './pipes/sort-by.pipe';
-import { InstitutionComponent } from './features/institution/institution.component';
-import { MaintainedComponent } from './src/app/features/institution/maintained/maintained.component';
-import { MaintainerComponent } from './src/app/features/institution/maintainer/maintainer.component';
-import { CourseComponent } from './src/app/features/institution/course/course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseComponent,
-    InstitutionComponent,
-    MaintainedComponent,
-    MaintainerComponent,
     UserComponent,
     UserFormModalComponent,
     UserListComponent,
@@ -32,7 +25,6 @@ import { CourseComponent } from './src/app/features/institution/course/course.co
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
     HttpClientModule,
     FormsModule,
 
