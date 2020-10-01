@@ -1,3 +1,4 @@
+import { GroupComponent } from './features/group/group.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,7 +17,6 @@ const routes: Routes = [
   {
     path: "", component: LayoutComponent, children: [
       { path: "home", component: HomeComponent },
-      { path: "user", component: UserComponent },
       { path: "institution", component: InstitutionComponent },
       {
         path: "institution", component: InstitutionComponent,
@@ -25,7 +25,9 @@ const routes: Routes = [
           { path: "maintainer", component: MaintainerComponent },
           { path: "course", component: CourseComponent },
         ]
-      }
+      },
+      { path: "user", component: UserComponent },
+      { path: "group", component: GroupComponent },
     ]
   }
 ];
