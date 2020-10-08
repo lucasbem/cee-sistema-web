@@ -10,6 +10,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavLogoComponent } from './nav/nav-logo/nav-logo.component';
 import { NavMenuComponent } from './nav/nav-menu/nav-menu.component';
+import { NavMenuCeeComponent } from './nav/nav-menu/nav-menu-cee/nav-menu-cee.component';
+import { NavMenuInstitutionComponent } from './nav/nav-menu/nav-menu-institution/nav-menu-institution.component';
+import { NavMenuCommissionComponent } from './nav/nav-menu/nav-menu-commission/nav-menu-commission.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { NavMenuComponent } from './nav/nav-menu/nav-menu.component';
     NavPerfilComponent,
     FooterComponent,
     NavLogoComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    NavMenuCeeComponent,
+    NavMenuInstitutionComponent,
+    NavMenuCommissionComponent
   ],
   imports: [
     CommonModule,
