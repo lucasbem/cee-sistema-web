@@ -1,7 +1,9 @@
+import { AuthService } from './../../../auth/auth.service';
 import { UserService } from './../../../features/user/user.service';
 import { ProfileService } from './../../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-perfil',
@@ -10,17 +12,25 @@ import { User } from 'src/app/interfaces/User';
 })
 export class NavPerfilComponent implements OnInit {
 
+  AuthService = AuthService;
+
   profileIndex: number = 0;
   firstName = /(.*?) .*/
   lastName = /.* (\w*)/
 
-  constructor(public profileService: ProfileService, public userService: UserService) { }
+  constructor(
+    public authService: AuthService,
+    public profileService: ProfileService,
+    public userService: UserService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
 
   logOut(): void {
-    this.userService.user = new User();
+    AuthService.init();
+    this.router.navigate(['/']);
   }
 
   change(idx: any){

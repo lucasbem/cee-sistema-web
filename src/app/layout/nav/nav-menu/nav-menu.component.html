@@ -4,42 +4,24 @@
   <ul class="nav nav-pills nav-sidebar nav-legacy flex-column" data-widget="treeview" role="menu">
 
     <li class="nav-item sd-bb">&nbsp;</li>
-    <li class="nav-item text-white text-center text-monospace">ANÔNIMO</li>
+    <!-- <li class="nav-item text-white text-center text-monospace">ANÔNIMO</li> -->
 
     <li class="nav-item">
       <a class="nav-link" routerLink="/home">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-book-open"></i>
         O CEE/TO
       </a>
     </li>
 
   </ul>
 
-  <app-nav-menu-cee></app-nav-menu-cee>
+  <!-- <app-nav-menu-cee *ngIf="isPermitted('cee')"></app-nav-menu-cee> -->
+  <app-nav-menu-cee *ngIf="isPermitted('cee')"></app-nav-menu-cee>
+  <app-nav-menu-commission *ngIf="isPermitted('commission')"></app-nav-menu-commission>
+  <app-nav-menu-institution *ngIf="isPermitted('institution')"></app-nav-menu-institution>
+  <app-nav-menu-manager *ngIf="isPermitted('manager')"></app-nav-menu-manager>
 
   <ul class="nav nav-pills nav-sidebar nav-legacy flex-column" data-widget="treeview" role="menu">
-    <li class="nav-item sd-bb">&nbsp;</li>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/user">
-        <i class="nav-icon fa fa-angle-double-right"></i>
-        Usuários
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/group">
-        <i class="nav-icon fa fa-angle-double-right"></i>
-        Grupos
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/settings.list">
-        <i class="nav-icon fa fa-cogs"></i>
-        Configurações
-      </a>
-    </li>
 
     <li class="nav-item">&nbsp;</li>
 
