@@ -8,6 +8,7 @@ export interface IUser {
   "name": string;
   "cpf": number;
   "rg"?: IRg;
+  "currentProfile"?: IProfile;
   "gender"?: string; //enum [masculino, feminino]
   "maritalStatus"?: string; //enum [solteiro(a), casado(a), ...]
   "status": string; //enum [0, 1]
@@ -62,6 +63,7 @@ export class User implements IUser {
 
   status = StatusEnum.INACTIVE;
   gender = GenderEnum.UNINFORMED;
+  currentProfile = {id:'asdf', name: 'Anônimo'}
 
   // dataAccess = {} as IDataAccess;
   dataAccess = {

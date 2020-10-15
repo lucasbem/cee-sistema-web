@@ -2,7 +2,7 @@ import { ModelNameEnum } from './enumerations/ModelNameEnum';
 export interface IProfile {
   "id"?: string;
   "name": string;
-  "roleCrud": IRoleCrud
+  "roleCrud"?: IRoleCrud
 }
 
 interface IRoleCrud {

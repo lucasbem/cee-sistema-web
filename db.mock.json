@@ -6,7 +6,12 @@
       "dataAccess": {
         "username": "1599974485158",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "3",
+            "name": "Auxiliar"
+          }
+        ]
       },
       "contact": {
         "email": "wcruz.info@gmail.com",
@@ -27,7 +32,12 @@
       "dataAccess": {
         "username": "1599974839445",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "1",
+            "name": "Gerente"
+          }
+        ]
       },
       "contact": {
         "email": "jacylima85@gmail.com",
@@ -48,7 +58,36 @@
       "dataAccess": {
         "username": "1600149674397",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "1",
+            "name": "Administrador"
+          },
+          {
+            "id": "2",
+            "name": "Anônimo"
+          },
+          {
+            "id": "3",
+            "name": "Auxiliar"
+          },
+          {
+            "id": "4",
+            "name": "Gerente"
+          },
+          {
+            "id": "5",
+            "name": "Procurador"
+          },
+          {
+            "id": "6",
+            "name": "Super Usuário"
+          },
+          {
+            "id": "7",
+            "name": "Membro"
+          }
+        ]
       },
       "contact": {
         "email": "msom.info@gmail.com",
@@ -70,7 +109,12 @@
       "dataAccess": {
         "username": "1600149721088",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "1",
+            "name": "Procurador"
+          }
+        ]
       },
       "contact": {
         "email": "leth.infor@gmail.com",
@@ -91,7 +135,12 @@
       "dataAccess": {
         "username": "1600149774268",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "4",
+            "name": "Gerente"
+          }
+        ]
       },
       "contact": {
         "email": [],
@@ -112,7 +161,12 @@
       "dataAccess": {
         "username": "1600149806059",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "1",
+            "name": "Administrador"
+          }
+        ]
       },
       "contact": {
         "email": [],
@@ -133,7 +187,12 @@
       "dataAccess": {
         "username": "1600149839618",
         "password": "1234567890",
-        "profiles": []
+        "profiles": [
+          {
+            "id": "1",
+            "name": "Administrador"
+          }
+        ]
       },
       "contact": {
         "email": [],
@@ -154,16 +213,32 @@
   "course": [],
   "profile": [
     {
+      "id": "1",
       "name": "Administrador"
     },
     {
+      "id": "2",
       "name": "Anônimo"
     },
     {
+      "id": "3",
+      "name": "Auxiliar"
+    },
+    {
+      "id": "4",
       "name": "Gerente"
     },
     {
+      "id": "5",
       "name": "Procurador"
+    },
+    {
+      "id": "6",
+      "name": "Super Usuário"
+    },
+    {
+      "id": "7",
+      "name": "Membro"
     }
   ]
 }
