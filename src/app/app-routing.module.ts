@@ -1,3 +1,5 @@
+import { PermissionGuard } from './guards/permission.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { GroupComponent } from './features/group/group.component';
 import { DashboardComponent } from './features/institution/dashboard/dashboard.component';
 import { AuxiliaryComponent } from './features/institution/auxiliary/auxiliary.component';
@@ -20,14 +22,15 @@ const routes: Routes = [
   {
     path: "", component: LayoutComponent, children: [
       { path: "home", component: HomeComponent },
-      { path: "institution", component: InstitutionComponent },
+      // { path: "institution", component: InstitutionComponent },
       {
         path: "institution", component: InstitutionComponent,
+        canActivate: [AuthGuard, PermissionGuard],
         children: [
           { path: "dashboard", component: DashboardComponent },
           { path: "maintained", component: MaintainedComponent },
           { path: "maintainer", component: MaintainerComponent },
-          { path: "course", component: CourseComponent },
+          { path: "course", component: CourseComponent, canActivate: [AuthGuard, PermissionGuard] },
           { path: "procurator", component: ProcuratorComponent },
           { path: "auxiliary", component: AuxiliaryComponent },
         ]
