@@ -21,7 +21,7 @@
               *ngFor="let item of userList"
                 (click)="login(item)">
                 <i class="fa fa-angle-double-right"></i> {{ item.name }}
-                <span class="sd-float-right">{{ item.id }}</span>
+                <span class="sd-float-right">({{ item.dataAccess.profiles[0].name }})</span>
               </span>
             </div>
           </div>

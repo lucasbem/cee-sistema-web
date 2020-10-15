@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { IUser, User } from './../../interfaces/User';
 import { UserService } from './../../features/user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,7 +21,8 @@ export class AuthListModalComponent implements OnInit {
   }
 
   login(user: IUser): void {
-    this.userService.user = this.userService.users.find(  e=> e.id == user.id) || new User();
+    AuthService.user = this.userService.users.find(  e => e.id == user.id) || new User();
+    AuthService.currentProfile = AuthService.user.dataAccess.profiles[0]
   }
 
 }
