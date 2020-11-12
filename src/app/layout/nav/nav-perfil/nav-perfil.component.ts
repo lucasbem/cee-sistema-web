@@ -33,8 +33,4 @@ export class NavPerfilComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  change(idx: any){
-    console.log(idx)
-  }
-
 }

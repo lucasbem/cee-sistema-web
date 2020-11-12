@@ -1,4 +1,3 @@
-import { AuthService } from './../auth/auth.service';
 import { AuthModule } from './../auth/auth.module';
 import { FormsModule } from '@angular/forms';
 import { NavPerfilComponent } from './nav/nav-perfil/nav-perfil.component';

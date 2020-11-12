@@ -16,19 +16,37 @@ export class NavMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // isPermitted(rep: string): boolean {
+
+  //   return (rep === "cee")
+  //     ? ["Técnico", "Administrador", "Gerente"].includes(AuthService.currentProfile.name)
+  //     : (rep === "institution")
+  //       ? ["Auxiliar", "Procurador", "Representante Legal"].includes(AuthService.currentProfile.name)
+  //       : (rep === "commission")
+  //         ? ["Membro"].includes(AuthService.currentProfile.name)
+  //         : (rep === "manager")
+  //           ? ["Administrador", "Gerente"].includes(AuthService.currentProfile.name)
+  //         : (rep === "anonimous")
+  //           ? ["Anônimo"].includes(AuthService.currentProfile.name)
+  //           : false
+  // }
+
   isPermitted(rep: string): boolean {
 
-    return (rep === "cee")
-      ? ["Técnico", "Administrador", "Gerente"].includes(AuthService.currentProfile.name)
-      : (rep === "institution")
-        ? ["Auxiliar", "Procurador"].includes(AuthService.currentProfile.name)
-        : (rep === "commission")
-          ? ["Membro"].includes(AuthService.currentProfile.name)
-          : (rep === "manager")
-            ? ["Administrador", "Gerente"].includes(AuthService.currentProfile.name)
-          : (rep === "anonimous")
-            ? ["Anônimo"].includes(AuthService.currentProfile.name)
-            : false
+    const profileList = {
+      "Super Usuário": ["/cee", "/institution", "/manager"],
+      "Técnico": ["/cee"],
+      "Administrador": ["/cee", "/manager"],
+      "Gerente": ["/cee"],
+      "Auxiliar": ["/institution"],
+      "Procurador": ["/institution"],
+      "Representante Legal": ["/institution"],
+      "Membro": ["/commission"],
+      "Anônimo": [""]
+    }
+
+    return profileList[AuthService.currentProfile.name].includes(rep);
+
   }
 
 }
