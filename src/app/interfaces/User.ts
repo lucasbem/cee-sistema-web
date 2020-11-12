@@ -57,7 +57,7 @@ export interface IDataAccess {
 
 export class User implements IUser {
 
-  name: string = "Anônimo";
+  name: string = "Visitante";
   cpf: number;
   description: string;
 

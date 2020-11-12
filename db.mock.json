@@ -86,6 +86,10 @@
           {
             "id": "7",
             "name": "Membro"
+          },
+          {
+            "id": "8",
+            "name": "Representante Legal"
           }
         ]
       },
@@ -208,7 +212,103 @@
       "id": 9
     }
   ],
-  "maintainer": [],
+  "maintainer": [
+    {
+      "id": "1",
+      "_legalRepresentative": "5",
+      "_auxiliary": [
+        "3"
+      ],
+      "name": "Mantida1",
+      "legalAct": [
+        {
+          "name": "Doc1",
+          "title": "Doc1",
+          "description": "Doc1",
+          "link": "",
+          "type": ""
+        }
+      ],
+      "socialReason": "Mantida1",
+      "other": "Mantida1",
+      "contact": {
+        "email": [
+          "email@mantida.com"
+        ],
+        "phone": [
+          {
+            "number": 1234567890
+          }
+        ],
+        "address": [
+          {
+            "country": "Brasil",
+            "place": "Rua 26 quadra 119"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "_legalRepresentative": "5",
+      "name": "Mantida2",
+      "legalAct": [
+        {
+          "name": "Doc1",
+          "title": "Doc1",
+          "description": "Doc1",
+          "link": "",
+          "type": ""
+        }
+      ],
+      "socialReason": "Mantida2",
+      "other": "Mantida2",
+      "contact": {
+        "email": [
+          "email@mantida.com"
+        ],
+        "phone": [
+          {
+            "number": 1234567890,
+            "type": "celular"
+          }
+        ],
+        "address": [
+          {
+            "country": "Brasil",
+            "place": "Rua 26 quadra 119"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yH3UR_0"
+    },
+    {
+      "id": "KygtGtR"
+    },
+    {
+      "id": "-jdwpQU"
+    },
+    {
+      "id": "jYR4hk2"
+    },
+    {
+      "id": "44YF7g5"
+    },
+    {
+      "id": "F8MjHUq"
+    },
+    {
+      "id": "iaQ76FJ"
+    },
+    {
+      "id": "h5jiFDf"
+    },
+    {
+      "id": "RqcqTzK"
+    }
+  ],
   "maintained": [],
   "course": [],
   "profile": [
@@ -239,6 +339,10 @@
     {
       "id": "7",
       "name": "Membro"
+    },
+    {
+      "id": "8",
+      "name": "Representante Legal"
     }
   ]
 }
