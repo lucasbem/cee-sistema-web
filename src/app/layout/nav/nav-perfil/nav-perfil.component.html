@@ -1,17 +1,17 @@
 <!-- * SIDEBAR USER PANEL -->
 <div class="user-panel mt-3 pb-3 mb-3 text-center">
 
-  <div *ngIf="AuthService.user.id">
+  <div *ngIf="AuthService.user._id">
     <i class="fas fa-user-circle fa-3x"></i>
     <!-- <img src="../../../public/img/haroldocruz.jpg" class="img-circle elevation-2" alt="User Image"> -->
     <a class="d-block" data-toggle="modal" data-target="#authListModal">
       {{ AuthService.user.name.match(firstName)[1]+' '+ AuthService.user.name.match(lastName)[1]}}
     </a>
-    <a class="d-block" data-toggle="modal" data-target="#authProfileModal">[{{ AuthService.currentProfile.name }}]</a>
+    <a class="d-block" data-toggle="modal" data-target="#authProfileModal">[{{ AuthService.currentProfile?.name }}]</a>
     <!-- <a href="#" class="d-block">{{ AuthService.user.dataAccess.profiles[profileIndex]?.name }}</a> -->
   </div>
 
-  <div *ngIf="!AuthService.user.id">
+  <div *ngIf="!AuthService.user._id">
     <i class="fas fa-user-circle fa-3x"></i>
     <a class="d-block" data-toggle="modal" data-target="#authListModal">{{ AuthService.user.name }}</a>
     <a class="d-block" data-toggle="modal" data-target="#authProfileModal">[{{ AuthService.currentProfile.name }}]</a>
@@ -25,7 +25,7 @@
   <ul class="nav nav-pills nav-sidebar nav-legacy flex-column" data-widget="treeview" role="menu">
 
     <!-- * BUTTON LOGIN -->
-    <li class="nav-item text-center" *ngIf="!AuthService.user.id">
+    <li class="nav-item text-center" *ngIf="!AuthService.user._id">
       <!-- <a class="nav-link ips-login" routerLink="/login"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a> -->
       <a class="nav-link ips-logon" data-toggle="modal" data-target="#authListModal">
         <i class="nav-icon fa fa-sign-in-alt"></i>
@@ -34,7 +34,7 @@
     </li>
 
     <!-- * BUTTON LOGOUT -->
-    <li class="nav-item text-center" *ngIf="AuthService.user.id" (click)="logOut()">
+    <li class="nav-item text-center" *ngIf="AuthService.user._id" (click)="logOut()">
       <a class="nav-link ips-logon">
         <i class="nav-icon fa fa-sign-out-alt"></i>
         LogOut [Sair]
@@ -42,7 +42,7 @@
     </li>
 
     <!-- * BUTTON PROFILE -->
-    <!-- <li class="nav-item text-center" *ngIf="AuthService.user.id"> -->
+    <!-- <li class="nav-item text-center" *ngIf="AuthService.user._id"> -->
     <li class="nav-item text-center" *ngIf="false">
       <!-- <a class="nav-link ips-login" routerLink="/login"> <i class="nav-icon fa fa-sign-in-alt"></i> LogIn [Entrar]</a> -->
       <a class="nav-link ips-logon" data-toggle="modal" data-target="#authProfileModal">

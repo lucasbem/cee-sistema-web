@@ -14,15 +14,19 @@ import { CeeModule } from './features/cee/cee.module';
 import { HomeModule } from './features/home/home.module';
 import { InstitutionModule } from './features/institution/institution.module';
 import { LayoutModule } from './layout/layout.module';
+import { ProfileModule } from './features/profile/profile.module';
 import { UserModule } from './features/user/user.module';
+
+import { SortByPipe } from './pipes/sort-by.pipe';
 import { SorteadorModule } from './features/others/sorteador/sorteador.module';
-import { CeeRhComponent } from './features/cee-rh/cee-rh.component';
 
 /*OTHERS*/
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    // SortByPipe
   ],
   imports: [
     /*ANGULAR*/
@@ -36,12 +40,13 @@ import { CeeRhComponent } from './features/cee-rh/cee-rh.component';
     AuthModule,
     CeeModule,
     HomeModule,
-    LayoutModule,
-    UserModule,
     InstitutionModule,
-    SorteadorModule
+    LayoutModule,
+    ProfileModule,
+    UserModule,
 
     /*OTHERS*/
+    SorteadorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,10 @@
 import { StatusEnum } from './Status';
-import { IContact, IPhone } from "./Contact";
+import { IAddress, IContact, IPhone } from "./Contact";
 import { IProfile } from "./Profile";
 import { ENV } from 'src/environments/environment';
 
 export interface IUser {
-  "id"?: string;
+  "_id"?: string;
   "name": string;
   "cpf": number;
   "rg"?: IRg;
@@ -63,13 +63,13 @@ export class User implements IUser {
 
   status = StatusEnum.INACTIVE;
   gender = GenderEnum.UNINFORMED;
-  currentProfile = {id:'asdf', name: 'Anônimo'}
+  currentProfile = {id:'asdf', name: 'Anônimo', status: true}
 
   // dataAccess = {} as IDataAccess;
   dataAccess = {
     username: (new Date().getTime()).toString(),
     password: ENV.user.defaultPassword,
-    profiles: [{id:'asdf', name: 'Anônimo'}] as Array<IProfile>
+    profiles: [{_id:'asdf', name: 'Anônimo'}] as Array<IProfile>
     // profiles: [] as Array<IProfile>
   };
 
@@ -77,11 +77,9 @@ export class User implements IUser {
   contact: IContact = {
     email: [],
     phone: [{
-      ddi: ENV.contact.phone.ddi,
-      ddd: ENV.contact.phone.ddd,
-      // number: ENV.contact.phone.number
+      number: ENV.contact.phone.number
     }],
-    address: []
+    address: [] as Array<IAddress>
   }
 
   constructor() {}

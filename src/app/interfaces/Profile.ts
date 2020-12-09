@@ -1,8 +1,10 @@
 import { ModelNameEnum } from './enumerations/ModelNameEnum';
 export interface IProfile {
-  "id"?: string;
+  "_id"?: string;
+  "status": boolean;
   "name": string;
-  "roleCrud"?: IRoleCrud
+  "roleCrud"?: IRoleCrud;
+  "description"?: string;
 }
 
 interface IRoleCrud {
@@ -12,4 +14,10 @@ interface IRoleCrud {
   "R": boolean;
   "U": boolean;
   "D": boolean;
+}
+
+export class Profile implements IProfile {
+
+  status: false;
+  name: "";
 }

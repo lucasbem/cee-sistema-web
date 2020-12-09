@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "0.0.3b",
+  "version": "0.0.4b",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,9 +30,11 @@
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
+    "nodemailer": "^6.4.16",
     "overlayscrollbars": "^1.13.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "twilio": "^3.54.0",
     "w-ng5": "^1.1.0",
     "zone.js": "~0.10.3"
   },

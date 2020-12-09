@@ -5,8 +5,8 @@
 
       <div class="modal-header">
         <h4 class="modal-title" id="userModalLabel">
-          <span *ngIf="!userService.user.id">Inserir</span>
-          <span *ngIf="userService.user.id">Alterar</span>
+          <span *ngIf="!userService.user._id">Inserir</span>
+          <span *ngIf="userService.user._id">Alterar</span>
         </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
@@ -17,21 +17,22 @@
           <div class="row">
             <div class="col-md-8">
               Nome:
-              <input type="text" [(ngModel)]="userService.user.name" class="form-control" placeholder="Digite seu nome completo">
+              <input type="text" [(ngModel)]="userService.user.name" class="form-control"
+                placeholder="Digite seu nome completo">
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               Perfil:
               <select id="profile" [(ngModel)]="userService.user.dataAccess.profiles" class="form-control">
                 <option [ngValue]="profile" *ngFor="let profile of profileService.profiles">{{ profile.name }}</option>
               </select>
-            </div>
+            </div> -->
 
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               Status:
               <select id="status" [(ngModel)]="userService.user.status" class="form-control">
                 <option [value]="status" *ngFor="let status of statusList">{{ status }}</option>
               </select>
-            </div>
+            </div> -->
             <div class="col-md-4">
               Gênero:
               <select id="gender" [(ngModel)]="userService.user.gender" class="form-control">
@@ -50,10 +51,10 @@
               CPF:
               <input type="text" [(ngModel)]="userService.user.cpf" class="form-control" placeholder="">
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               E-mail:
               <input type="text" [(ngModel)]="userService.user.contact.email" class="form-control" />
-            </div>
+            </div> -->
           </div>
           <div class="row mt-2">
             <!-- <div class="col-md-2">
@@ -75,16 +76,16 @@
                 <span class="sd-pointer list-group-item text-center text-danger" *ngIf="true">
                   Nenhum telefone inserido!
                 </span>
-                <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
+                <!-- <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
                   Inserir outro telefone!
-                </span>
+                </span> -->
 
                 <!-- <span class="list-group-item" *ngIf="false" *ngFor="let p of phoneList"> -->
                 <span class="list-group-item sd-list-items" *ngIf="true">
                   <i class="fa fa-angle-double-right"></i> {{ '+55 (63) 98458-9691 (celular)' }}
                   <span class="sd-pointer sd-trash-float-right">
                     <!-- <i class="fas fa-trash" (click)="remove(p)"></i> -->
-                    <i class="fas fa-trash-alt text-danger"></i>
+                    <!-- <i class="fas fa-trash-alt text-danger"></i> -->
                   </span>
                 </span>
 
@@ -99,9 +100,9 @@
                 <span class="sd-pointer list-group-item text-center text-danger" *ngIf="true">
                   Nenhum email inserido!
                 </span>
-                <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
+                <!-- <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
                   Inserir outro email!
-                </span>
+                </span> -->
 
                 <!-- <span class="list-group-item" *ngIf="false" *ngFor="let e of emailList"> -->
                 <span class="list-group-item sd-list-items" *ngIf="true">
@@ -116,24 +117,49 @@
 
             </div>
           </div>
-        <div class="row">
-          <div class="col-md-12">
-            Descrição:
-            <textarea rows="6" [(ngModel)]="userService.user.description" class="form-control"></textarea>
+          <div class="row mt-2">
+            <div class="col-md-12">
+
+              <div class="list-group">
+
+                <span class="sd-pointer list-group-item text-center text-danger" *ngIf="true">
+                  Nenhum endereço inserido!
+                </span>
+                <!-- <span class="sd-pointer list-group-item text-center text-green" *ngIf="true">
+                  Inserir outro email!
+                </span> -->
+
+                <!-- <span class="list-group-item" *ngIf="false" *ngFor="let e of emailList"> -->
+                <span class="list-group-item sd-list-items" *ngIf="true">
+                  <i class="fa fa-angle-double-right"></i> {{ '103Sul, Alameda SO 01, Qi 08, Palmas, Tocantins, 77000-000' }}
+                  <span class="sd-pointer sd-trash-float-right">
+                    <!-- <i class="fas fa-trash" (click)="remove(p)"></i> -->
+                    <i class="fas fa-trash-alt text-danger"></i>
+                  </span>
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Descrição:
+              <textarea rows="6" [(ngModel)]="userService.user.description" class="form-control"></textarea>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="modal-footer">
-      <button type="reset" class="btn btn-default" *ngIf="!userService.user.id">Limpar</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="create()"
-        *ngIf="!userService.user.id">Salvar</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="update()"
-        *ngIf="userService.user.id">Atualizar</button>
-    </div>
+      <div class="modal-footer">
+        <button type="reset" class="btn btn-default" *ngIf="!userService.user._id">Limpar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="create()"
+          *ngIf="!userService.user._id">Salvar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="update()"
+          *ngIf="userService.user._id">Atualizar</button>
+      </div>
 
+    </div>
   </div>
-</div>
 </div>

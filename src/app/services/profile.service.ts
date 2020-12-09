@@ -18,6 +18,7 @@ export class ProfileService {
   baseUrl = `${ENV.api.url}/profile`
   profile: IProfile;
   profiles: IProfile[];
+  filtro: string;
 
   constructor(private http: HttpClient) {
     this.index();
@@ -45,7 +46,7 @@ export class ProfileService {
   }
 
   update(profile: IProfile): void{
-    const url = `${this.baseUrl}/${profile.id}`
+    const url = `${this.baseUrl}/${profile._id}`
     this.http.post<IProfile>(url, profile).subscribe(() => {
       this.index();
     });
@@ -63,7 +64,7 @@ export class ProfileService {
   // }
 
   // update(profile: IProfile): Observable<IProfile>{
-  //   const url = `${this.baseUrl}/${profile.id}`
+  //   const url = `${this.baseUrl}/${profile._id}`
   //   return this.http.post<IProfile>(url, profile);
   // }
 

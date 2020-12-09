@@ -15,8 +15,7 @@ export class UserListComponent implements OnInit {
   // filtro: string;
 
   constructor(
-    public userService: UserService,
-    private router: Router
+    public userService: UserService
   ) { }
 
   ngOnInit(): void { }

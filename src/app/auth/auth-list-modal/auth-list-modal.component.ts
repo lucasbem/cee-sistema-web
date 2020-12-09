@@ -21,7 +21,7 @@ export class AuthListModalComponent implements OnInit {
   }
 
   login(user: IUser): void {
-    AuthService.user = this.userService.users.find(  e => e.id == user.id) || new User();
+    AuthService.user = this.userService.users.find(  e => e._id == user._id) || new User();
     AuthService.currentProfile = AuthService.user.dataAccess.profiles[0]
   }
 

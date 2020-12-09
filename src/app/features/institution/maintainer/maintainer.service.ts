@@ -35,7 +35,7 @@ export class MaintainerService {
   }
 
   index2() {
-    this.readByLegalRepresentativeId(AuthService.user.id).subscribe((data) => {
+    this.readByLegalRepresentativeId(AuthService.user._id).subscribe((data) => {
       MaintainerService.maintainer = data;
     })
   }

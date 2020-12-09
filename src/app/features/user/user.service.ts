@@ -76,7 +76,7 @@ export class UserService {
   }
 
   update(user: IUser): Observable<IUser> {
-    const url = `${this.baseUrl}/${user.id}`
+    const url = `${this.baseUrl}/${user._id}`
     return this.http.put<IUser>(url, user);
   }
 
