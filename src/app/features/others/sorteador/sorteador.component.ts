@@ -163,7 +163,7 @@ export class SorteadorComponent implements OnInit {
   async start() {
     this.isDisabled = true;
     await this.draw();
-    // await this.sendMailAll();
+    await this.sendMailAll();
   }
 
   async draw() {
@@ -206,13 +206,13 @@ export class SorteadorComponent implements OnInit {
   async sendMailAll() {
     for (let i = 0; i < this.participantList.length; i++) {
       await this.sleep(400);
-      this.sendMail(this.participantList[i]);
+      this.sendMailToAllParticipants(this.participantList[i]);
     }
 
-    this.sendMail2(this.participantList);
+    this.sendMailToAdministrator(this.participantList);
   }
 
-  sendMail(participant: IParticipant) {
+  sendMailToAllParticipants(participant: IParticipant) {
 
     const emailData: IEmailData = {
       from: "msom.info@gmail.com",
@@ -226,7 +226,19 @@ export class SorteadorComponent implements OnInit {
     })
   }
 
-  sendMail2(participantList: IParticipant[]) {
+  sendMailToAllParticipants_fake(participant: IParticipant) {
+
+    const emailData: IEmailData = {
+      from: "msom.info@gmail.com",
+      to: participant.email,
+      subject: "CEE - SORTEIO DO AMIGO-SECRETO",
+      text: `Seu amigo secreto é: ${participant.secretFriend?.name}`
+    }
+
+      participant.message = { isOk: true, message: "Email enviado com sucesso!"};
+  }
+
+  sendMailToAdministrator(participantList: IParticipant[]) {
 
     const emailData: IEmailData = {
       from: "msom.info@gmail.com",
