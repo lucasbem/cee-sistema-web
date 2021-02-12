@@ -27,4 +27,8 @@ export class NotificationService {
   showMessage(message: string, title: string) {
     this.toastr.show(message, title);
   }
+
+  showHTMLMessage(message: string, title: string) {
+    this.toastr.show(message, title, { enableHtml: true });
+  }
 }
