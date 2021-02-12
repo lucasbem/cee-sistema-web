@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
@@ -13,7 +14,8 @@ import { AuthProfileModalComponent } from './auth-profile-modal/auth-profile-mod
     AuthProfileModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     AuthComponent,

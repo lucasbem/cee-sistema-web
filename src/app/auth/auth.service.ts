@@ -19,7 +19,7 @@ export class AuthService {
   static currentProfile: IProfile;
   static user: IUser;
 
-  baseUrl = `${ENV.api.url}/user`;
+  baseUrl = `${ENV.api.url}/auth`;
 
   private headers = new HttpHeaders({
     //TODO
@@ -36,11 +36,10 @@ export class AuthService {
     AuthService.currentProfile = AuthService.user.dataAccess.profiles[0];
   }
 
-  login(userDataLogin: IUserDataLogin): void {
+  login(userDataLogin: IUserDataLogin): Observable<any> {
     const url = `${this.baseUrl}/login`;
-    this.http.post<IUser>(url, userDataLogin, { headers: this.headers }).subscribe((user) => {
-      AuthService.user = user;
-    });
+    console.log(userDataLogin)
+    return this.http.post<IUser>(url, userDataLogin, { headers: this.headers })
   }
 
   logout(id: string): void {
