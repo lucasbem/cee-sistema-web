@@ -19,6 +19,7 @@ import { UserModule } from './features/user/user.module';
 
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { SorteadorModule } from './features/others/sorteador/sorteador.module';
+import { ToastrModule } from 'ngx-toastr';
 
 /*OTHERS*/
 
@@ -35,6 +36,8 @@ import { SorteadorModule } from './features/others/sorteador/sorteador.module';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+
+    ToastrModule.forRoot({ positionClass:'toast-top-right', closeButton: true }),
 
     /*FEATURES*/
     AuthModule,
