@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { IProfile } from './../../interfaces/Profile';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -5,9 +6,8 @@ import { IUser, User } from "./../../interfaces/User";
 import { Observable } from 'rxjs';
 import { ENV } from 'src/environments/environment';
 
-interface IUserDataLogin {
-  cpf?: number;
-  email?: string;
+export interface IUserDataLogin {
+  username: string;
   password: string;
 }
 
@@ -25,8 +25,9 @@ export class UserService {
 
   private headers = new HttpHeaders({
     //TODO
-    // 'Authorization': localStorage.getItem('token'),
-    // 'Content-Type': 'application/json'
+    // 'authorization': localStorage.getItem('token'),
+    'authorization': AuthService.user?.loginInfo?.token,
+    'Content-Type': 'application/json'
   });
 
   constructor(private http: HttpClient) {

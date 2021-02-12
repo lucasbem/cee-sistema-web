@@ -51,7 +51,7 @@ class LoginInfo{}
 
 export interface IDataAccess {
   "username"?: string;
-  "password": string;
+  "password"?: string;
   "profiles"?: IProfile[];
 }
 
