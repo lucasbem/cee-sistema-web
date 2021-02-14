@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   logout(id: string): void {
-    const url = `${this.baseUrl}/logoff/${id}`;
+    const url = `${this.baseUrl}/logout/${id}`;
     this.http.get<IUser>(url, { headers: this.headers }).subscribe(() => {
       AuthService.init();
     });
