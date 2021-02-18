@@ -1,4 +1,4 @@
-import { ProfileService } from './../../services/profile.service';
+import { ProfileService } from './profile.service';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { debounceTime } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void {
-
 
     this.typeahead(document.getElementById('search-box')).subscribe(data => {
       this.profileService.filtro = data;

@@ -12,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class AuthComponent implements OnInit {
 
   public dataAccess: IUserDataLogin;
-  public username: string
-  public password: string
+  public username: string = "1234567890"
+  public password: string = "1234567890"
 
   constructor(private authService: AuthService, private router: Router, private notifyService: NotificationService) { }
 
@@ -23,7 +23,6 @@ export class AuthComponent implements OnInit {
   submit() {
     this.dataAccess = { username: this.username, password: this.password }
     this.authService.login(this.dataAccess).subscribe((data) => {
-      console.info(data) //! APAGAR
       if (data._id) {
         AuthService.user = data;
         this.router.navigate(['/home'])

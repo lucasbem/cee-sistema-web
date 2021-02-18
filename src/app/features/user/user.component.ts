@@ -18,7 +18,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this.typeahead(document.getElementById('search-box')).subscribe(data => {
       this.userService.filtro = data;
     });

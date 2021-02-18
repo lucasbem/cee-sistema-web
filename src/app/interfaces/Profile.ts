@@ -20,4 +20,6 @@ export class Profile implements IProfile {
 
   status: false;
   name: "";
+
+  constructor(){}
 }

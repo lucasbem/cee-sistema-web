@@ -1,3 +1,4 @@
+import { NotificationService } from './../../../services/notification.service';
 
 import { IUser, User } from './../../../interfaces/User';
 import { UserService } from './../user.service';
@@ -15,10 +16,11 @@ export class UserListComponent implements OnInit {
   // filtro: string;
 
   constructor(
-    public userService: UserService
+    public userService: UserService,
+    private notify: NotificationService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.index() }
 
   index(): void {
     this.userService.index();
@@ -30,8 +32,11 @@ export class UserListComponent implements OnInit {
 
   delete(id): void {
     this.userService.delete(id).subscribe((data) => {
+        this.notify.showSuccess(data[1], "Ok!")
       this.userService.index();
-    })
+    }, (error)=>{
+        this.notify.showError(error.error[1], "Ops!")
+    });
   }
 
 }

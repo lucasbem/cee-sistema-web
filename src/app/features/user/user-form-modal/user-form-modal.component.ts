@@ -1,7 +1,7 @@
+import { NotificationService } from './../../../services/notification.service';
 import { StatusEnum } from './../../../interfaces/Status';
 import { GenderEnum } from './../../../interfaces/User';
 import { UserService } from './../user.service';
-import { ProfileService } from './../../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class UserFormModalComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public profileService: ProfileService,
+    private notify: NotificationService,
     private router: Router
   ) {
     // this.reloadComponent()
@@ -46,14 +46,20 @@ export class UserFormModalComponent implements OnInit {
   }
 
   create(): void {
-    this.userService.create(this.userService.user).subscribe(() => {
+    this.userService.create(this.userService.user).subscribe((data) => {
+        this.notify.showSuccess(data[1], "Ok!")
       this.userService.index();
+    }, (error)=>{
+        this.notify.showError(error.error[1], "Ops!")
     });
   }
 
   update(): void {
-    this.userService.update(this.userService.user).subscribe(() => {
+    this.userService.update(this.userService.user).subscribe((data) => {
+        this.notify.showSuccess(data[1], "Ok!")
       this.userService.index();
+    }, (error)=>{
+        this.notify.showError(error.error[1], "Ops!")
     });
   }
 
