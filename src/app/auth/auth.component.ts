@@ -25,10 +25,11 @@ export class AuthComponent implements OnInit {
     this.authService.login(this.dataAccess).subscribe((data) => {
       if (data._id) {
         AuthService.user = data;
+        sessionStorage.setItem("user", JSON.stringify(data));
         this.router.navigate(['/home'])
       }
       else
-        this.notifyService.showWarning(data[1], "Warning");
+        this.notifyService.showWarning(data[1], "Ops!");
     });
   }
 

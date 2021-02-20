@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 import { AuthService } from './../../auth/auth.service';
 import { IProfile } from './../../interfaces/Profile';
 import { Injectable } from '@angular/core';
@@ -5,6 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IUser, User } from "./../../interfaces/User";
 import { Observable } from 'rxjs';
 import { ENV } from 'src/environments/environment';
+import _cloneDeep from "lodash/cloneDeep";
 
 export interface IUserDataLogin {
     username: string;
@@ -23,8 +25,10 @@ export class UserService {
 
     baseUrl = `${ENV.api.url}/user`;
 
-    constructor(private http: HttpClient) {
-        this.index();
+    constructor(
+        private http: HttpClient,
+        private notify: NotificationService
+        ) {
         this.user = new User();
     }
 
@@ -42,7 +46,7 @@ export class UserService {
     }
 
     edit(user: IUser | null) {
-        this.user = (user) ? user : new User();
+        this.user = (user) ? _cloneDeep(user) : new User();
     }
 
     create(user: IUser): Observable<IUser> {
@@ -66,6 +70,24 @@ export class UserService {
     delete(id: string): Observable<IUser> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.delete<IUser>(url, { headers: this.headers() });
+    }
+
+    default(resp: Observable<IUser>) {
+
+        resp.subscribe((data) => {
+            this.notify.showSuccess("Ação realizada com sucesso!", "Ok!")
+            this.index();
+        }, (error) => {
+            this.notify.showError("Não foi possível realizar esta ação!", "Erro!");
+        });
+    }
+
+    isConfirm(){
+        if (!confirm("Confirmar ação?")) {
+            this.notify.showWarning("Ação cancelada!", "Ops!");
+            return false;
+        }
+        return true;
     }
 
 }

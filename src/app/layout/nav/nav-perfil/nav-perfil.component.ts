@@ -32,6 +32,7 @@ export class NavPerfilComponent implements OnInit {
 
     logOut(): void {
         this.authService.logout(AuthService.user._id).subscribe((data) => {
+            sessionStorage.removeItem("user");
             AuthService.init();
             this.router.navigate(['/']);
             this.notify.showSuccess(data[1], "Sucesso!");

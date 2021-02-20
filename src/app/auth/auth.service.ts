@@ -17,35 +17,26 @@ interface IUserDataLogin {
 export class AuthService {
 
   static currentProfile: IProfile;
-  static user: IUser = JSON.parse(sessionStorage.getItem("user"));
+  static user: IUser;
 
   baseUrl = `${ENV.api.url}/auth`;
-
-//   private headers = new HttpHeaders({
-//     //TODO
-//     // 'authorization': localStorage.getItem('token'),
-//     'authorization': AuthService.user?.loginInfo?.token || '',
-//     'Content-Type': 'application/json'
-//   });
 
   constructor(private http: HttpClient) {
     AuthService.init()
   }
 
   static init() {
-    AuthService.user = new User();
-    AuthService.currentProfile = AuthService.user.dataAccess.profiles[0];
+    AuthService.user = JSON.parse(sessionStorage.getItem("user")) || new User();
+    // AuthService.currentProfile = AuthService.user?.dataAccess?.group || null; //? USAR ESTE
+    AuthService.currentProfile = {name:"Superuser", status: true}; //! APAGAR
   }
 
   headers(){
-    //   return new HttpHeaders({
       return {
         //TODO
-        // 'authorization': localStorage.getItem('token'),
         'authorization': AuthService.user?.loginInfo?.token || '',
         'Content-Type': 'application/json'
       };
-    //   });
   }
 
   login(userDataLogin: IUserDataLogin): Observable<any> {

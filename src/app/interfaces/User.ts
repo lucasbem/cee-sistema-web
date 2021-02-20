@@ -52,7 +52,8 @@ class LoginInfo{}
 export interface IDataAccess {
   "username"?: string;
   "password"?: string;
-  "profiles"?: IProfile[];
+  "groups"?: IProfile[];
+  "group"?: IProfile;
 }
 
 export class User implements IUser {
