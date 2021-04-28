@@ -1,3 +1,4 @@
+import { UserService } from './../../user/user.service';
 import { NotificationService } from './../../../services/notification.service';
 import { ProfileService } from './../profile.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,8 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileFormModalComponent implements OnInit {
 
+    statusList: string[];
+    genderList: string[];
+
     constructor(
         public profileService: ProfileService,
+        public userService: UserService,
         private notify: NotificationService
     ) { }
 

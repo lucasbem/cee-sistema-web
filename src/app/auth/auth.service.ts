@@ -41,7 +41,6 @@ export class AuthService {
 
   login(userDataLogin: IUserDataLogin): Observable<any> {
     const url = `${this.baseUrl}/login`;
-    console.log(userDataLogin)
     return this.http.post<IUser>(url, userDataLogin, { headers: this.headers() })
   }
 

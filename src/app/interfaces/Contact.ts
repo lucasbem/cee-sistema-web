@@ -1,14 +1,17 @@
 export interface IContact {
-    email?: string[];
-    phone?: IPhone[];
-    address?: IAddress[];
+    emailList?: IEmail[];
+    phoneList?: IPhone[];
+    addressList?: IAddress[];
 }
 
 export interface IPhone {
-  ddi?: number;
-  ddd?: number;
   number?: number;
-  typePhone?: TypePhoneEnum;
+  description?: string;
+}
+
+export interface IEmail {
+  address?: string;
+  description?: string;
 }
 
 export enum TypePhoneEnum {
@@ -29,4 +32,5 @@ export interface IAddress {
   "number"?: number;
   "zipcode"?: number;
   "complement"?: string;
+  "description"?: string;
 }

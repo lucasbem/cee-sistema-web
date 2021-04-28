@@ -1,3 +1,4 @@
+import { IStatusMessage } from './../../../interfaces/IStatusMessage';
 import { NotificationService } from './../../../services/notification.service';
 import { AuthService } from './../../../auth/auth.service';
 import { UserService } from './../../../features/user/user.service';
@@ -31,11 +32,12 @@ export class NavPerfilComponent implements OnInit {
     }
 
     logOut(): void {
-        this.authService.logout(AuthService.user._id).subscribe((data) => {
+        this.authService.logout(AuthService.user._id).subscribe((data: IStatusMessage) => {
             sessionStorage.removeItem("user");
+            localStorage.removeItem("user");
             AuthService.init();
             this.router.navigate(['/']);
-            this.notify.showSuccess(data[1], "Sucesso!");
+            this.notify.showSuccess(`${data.statusMessage}!`, `${data.statusCode}`);
         }, (error) => {
             this.notify.showError(error.error[1], "Ops!")
         });

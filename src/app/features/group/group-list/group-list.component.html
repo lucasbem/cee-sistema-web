@@ -9,20 +9,20 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let profile of profileList; let i = index"> -->
-    <!-- <tr *ngFor="let profile of profileService.profiles | filter: [{field: 'name', value: profileService.filtro}] | sortBy:'asc':'status, name'; let i = index"> -->
-    <tr *ngFor="let profile of profileService.profiles | filter: [{field: 'name', value: profileService.filtro}] let i = index">
+    <!-- <tr *ngFor="let group of groupList; let i = index"> -->
+    <!-- <tr *ngFor="let group of groupService.groups | filter: [{field: 'name', value: groupService.filtro}] | sortBy:'asc':'status, name'; let i = index"> -->
+    <tr *ngFor="let group of groupService.groups | filter: [{field: 'name', value: groupService.filtro}] let i = index">
       <td scope="row" class="text-center sd-wfr">{{ i + 1 }}</td>
       <td class="text-center sd-wfr">
-        <i class="fas fa-check-circle text-green" *ngIf="profile.status" title="ativo"></i>
-        <i class="fas fa-times-circle text-red" *ngIf="!profile.status" title="inativo"></i>
+        <i class="fas fa-check-circle text-green" *ngIf="group.status" title="ativo"></i>
+        <i class="fas fa-times-circle text-red" *ngIf="!group.status" title="inativo"></i>
       </td>
-      <td>{{ profile.name }}</td>
-      <td>{{ profile.description }}</td>
+      <td>{{ group.name }}</td>
+      <td>{{ group.description }}</td>
       <td class="text-center sd-wf">
-        <i class="fas fa-edit sd-pointer text-primary" data-toggle="modal" data-target="#profileModal" (click)="profileService.edit(profile)"></i>
+        <i class="fas fa-edit sd-pointer text-primary" data-toggle="modal" data-target="#groupModal" (click)="groupService.edit(group)"></i>
         &nbsp;
-        <i class="fas fa-trash-alt sd-pointer text-danger" (click)="delete(profile._id)"></i>
+        <i class="fas fa-trash-alt sd-pointer text-danger" (click)="delete(group._id)"></i>
       </td>
     </tr>
   </tbody>

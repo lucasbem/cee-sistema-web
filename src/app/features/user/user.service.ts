@@ -1,3 +1,4 @@
+import { IStatusMessage } from './../../interfaces/IStatusMessage';
 import { NotificationService } from './../../services/notification.service';
 import { AuthService } from './../../auth/auth.service';
 import { IProfile } from './../../interfaces/Profile';
@@ -28,14 +29,16 @@ export class UserService {
     constructor(
         private http: HttpClient,
         private notify: NotificationService
-        ) {
+    ) {
         this.user = new User();
     }
 
     index() {
         this.read().subscribe((data) => {
             this.users = data;
-        })
+        }, (error) => {
+            this.notify.showError(error.error.message, "Erro!");
+        });
     }
 
     headers() {
@@ -49,32 +52,37 @@ export class UserService {
         this.user = (user) ? _cloneDeep(user) : new User();
     }
 
-    create(user: IUser): Observable<IUser> {
-        return this.http.post<IUser>(this.baseUrl, user, { headers: this.headers() });
+    create(user: IUser): Observable<IUser & IStatusMessage> {
+        return this.http.post<IUser & IStatusMessage>(this.baseUrl, user, { headers: this.headers() });
     }
 
     read(): Observable<IUser[]> {
         return this.http.get<IUser[]>(this.baseUrl, { headers: this.headers() });
     }
 
-    readById(id: string): Observable<IUser> {
+    readById(id: string): Observable<IUser & IStatusMessage> {
         const url = `${this.baseUrl}/${id}`;
-        return this.http.get<IUser>(url, { headers: this.headers() });
+        return this.http.get<IUser & IStatusMessage>(url, { headers: this.headers() });
     }
 
-    update(user: IUser): Observable<IUser> {
+    update(user: IUser): Observable<IUser & IStatusMessage> {
         const url = `${this.baseUrl}/${user._id}`
-        return this.http.put<IUser>(url, user, { headers: this.headers() });
+        return this.http.put<IUser & IStatusMessage>(url, user, { headers: this.headers() });
     }
 
-    delete(id: string): Observable<IUser> {
+    delete(id: string): Observable<IUser & IStatusMessage> {
         const url = `${this.baseUrl}/${id}`;
-        return this.http.delete<IUser>(url, { headers: this.headers() });
+        return this.http.delete<IUser & IStatusMessage>(url, { headers: this.headers() });
     }
 
-    default(resp: Observable<IUser>) {
+    default(resp: Observable<IUser & IStatusMessage>) {
 
         resp.subscribe((data) => {
+            if (data.statusCode >= 400) {
+                console.log(data)
+                this.notify.showError(data.statusMessage, `Erro ${data.statusCode}!`);
+                return;
+            }
             this.notify.showSuccess("Ação realizada com sucesso!", "Ok!")
             this.index();
         }, (error) => {
@@ -82,8 +90,8 @@ export class UserService {
         });
     }
 
-    isConfirm(){
-        if (!confirm("Confirmar ação?")) {
+    isConfirm(question: string = "Confirmar ação?") {
+        if (!confirm(question)) {
             this.notify.showWarning("Ação cancelada!", "Ops!");
             return false;
         }

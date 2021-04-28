@@ -3,23 +3,22 @@ export interface IGroup {
   "_id"?: string;
   "status": boolean;
   "name": string;
-  "roleCrud"?: IRoleCrud;
+  "context"?: string;
   "description"?: string;
+  "routeList"?: IRoute[];
 }
 
-interface IRoleCrud {
-  "_model": string;
-  "_modelName": ModelNameEnum;
-  "C": boolean;
-  "R": boolean;
-  "U": boolean;
-  "D": boolean;
+interface IRoute {
+    "_id"?: string;
+    "name": string;
+    "description"?: string;
 }
 
 export class Group implements IGroup {
 
-  status: false;
-  name: "";
+  status = false;
+  name = "";
 
-  constructor(){}
+  constructor(){
+  }
 }

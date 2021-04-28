@@ -23,7 +23,6 @@ export class GroupService {
   });
 
   constructor(private http: HttpClient) {
-    this.index();
     this.group = new Group();
   }
 

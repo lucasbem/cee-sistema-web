@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaintainerComponent implements OnInit {
 
+    item: any
+
   // maintainer = {
   //   "id": "2",
   //   "name": "Mantida2",
@@ -50,6 +52,19 @@ export class MaintainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.maintainer = MaintainerService.maintainer;
+    this.mockDataIndex(); //!REMOVER
   }
+
+    mockDataIndex() { //!REMOVER
+        this.item = {
+            addressList: [
+
+            ],
+            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui, necessitatibus modi sapiente, cupiditate optio vero cum eius eos voluptatem quia quasi, sint recusandae ea nobis tempora ad magni architecto.",
+            legalBaseList: [
+                { name: "Lei n° 111", link: "#", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui, necessitatibus modi sapiente, cupiditate optio vero cum eius eos voluptatem quia quasi, sint recusandae ea nobis tempora ad magni architecto." },
+                { name: "Lei n° 222", link: "#", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui, necessitatibus modi sapiente, cupiditate optio vero cum eius eos voluptatem quia quasi, sint recusandae ea nobis tempora ad magni architecto." }]
+        }
+    }
 
 }

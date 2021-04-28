@@ -1,3 +1,4 @@
+import { GroupComponent } from './features/group/group.component';
 import { PermissionGuard } from './guards/permission.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthComponent } from './auth/auth.component';
@@ -58,7 +59,10 @@ const routes: Routes = [
       //     // { path: "instrument", component: ProcuratorComponent, canActivate: [AuthGuard, PermissionGuard] },
       //   ]
       // },
-      { path: "user", component: UserComponent, canActivate: [AuthGuard, PermissionGuard] },
+      { path: "user", component: UserComponent,
+    //   canActivate: [AuthGuard, PermissionGuard]
+    },
+      { path: "group", component: GroupComponent },
       { path: "profile", component: ProfileComponent },
     ]
   }
