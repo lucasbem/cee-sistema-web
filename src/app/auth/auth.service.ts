@@ -19,35 +19,35 @@ export class AuthService {
   static currentProfile: IProfile;
   static user: IUser;
 
-  baseUrl = `${ENV.api.url}/user`;
-
-  private headers = new HttpHeaders({
-    //TODO
-    // 'Authorization': localStorage.getItem('token'),
-    // 'Content-Type': 'application/json'
-  });
+  baseUrl = `${ENV.api.url}/auth`;
 
   constructor(private http: HttpClient) {
     AuthService.init()
   }
 
   static init() {
-    AuthService.user = new User();
-    AuthService.currentProfile = AuthService.user.dataAccess.profiles[0];
+    AuthService.user = JSON.parse(sessionStorage.getItem("user")) || new User();
+    // AuthService.currentProfile = AuthService.user?.dataAccess?.group || null; //? USAR ESTE
+    AuthService.currentProfile = {name:"Superuser", status: true}; //! APAGAR
   }
 
-  login(userDataLogin: IUserDataLogin): void {
+  headers(){
+      return {
+        //TODO
+        'authorization': AuthService.user?.loginInfo?.token || '',
+        'Content-Type': 'application/json'
+      };
+  }
+
+  login(userDataLogin: IUserDataLogin): Observable<any> {
     const url = `${this.baseUrl}/login`;
-    this.http.post<IUser>(url, userDataLogin, { headers: this.headers }).subscribe((user) => {
-      AuthService.user = user;
-    });
+    return this.http.post<IUser>(url, userDataLogin, { headers: this.headers() })
   }
 
-  logout(id: string): void {
-    const url = `${this.baseUrl}/logoff/${id}`;
-    this.http.get<IUser>(url, { headers: this.headers }).subscribe(() => {
-      AuthService.init();
-    });
+  logout(id: string): Observable<any> {
+    // const headers = { 'authorization': AuthService.user?.loginInfo?.token }
+    const url = `${this.baseUrl}/logout/${id}`;
+    return this.http.post<any>(url, {}, { headers: this.headers() })
   }
 
   logon(userDataLogin: IUserDataLogin): Observable<IUser> {

@@ -9,6 +9,8 @@ import { InstitutionComponent } from './institution.component';
 import { ProcuratorComponent } from './procurator/procurator.component';
 import { AuxiliaryComponent } from './auxiliary/auxiliary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { InstitutionHomeComponent } from './institution-home/institution-home.component';
+import { InstitutionUserComponent } from './institution-user/institution-user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MaintainerComponent,
     ProcuratorComponent,
     AuxiliaryComponent,
-    DashboardComponent
+    DashboardComponent,
+    InstitutionHomeComponent,
+    InstitutionUserComponent
   ],
   imports: [
     CommonModule,

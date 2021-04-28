@@ -1,31 +1,20 @@
-<br>
 <div class="container-fluid">
-  <div class="row hidden-print">
-    <div class="col-6">
+    <div class="row">
+        <div class="col-md-3">
 
-      <!-- * Button -->
-      <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#profileModal" (click)="edit(null)">
-        <i class="fa fa-plus"></i>
-        Criar novo
-      </button>
+            <!-- * Image -->
+            <app-profile-card-image></app-profile-card-image>
 
-      <br><br>
+            <!-- * About Me -->
+            <app-profile-card-aboutme></app-profile-card-aboutme>
 
-      <!-- * Filter field -->
-      <div class="input-group mb-3">
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span><i class="fa fa-filter"></i></span>
-          </div>
         </div>
-        <input id="search-box" class="form-control" type="text" [(ngModel)]="filtro" placeholder="Filtrar">
-        <input type="hidden" [value]="profileService.filtro">
-      </div>
-
+        <div class="col-md-9">
+            <!-- * Content Main -->
+            <app-profile-card-main></app-profile-card-main>
+        </div>
     </div>
-  </div>
-</div>
-
-<app-profile-list></app-profile-list>
+    <!-- /.row -->
+</div><!-- /.container-fluid -->
 
 <app-profile-form-modal></app-profile-form-modal>

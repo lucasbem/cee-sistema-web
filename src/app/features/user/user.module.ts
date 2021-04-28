@@ -1,3 +1,4 @@
+import { UserFormViewComponent } from './user-form-view/user-form-view.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,14 +10,18 @@ import { UserFormModalComponent } from './user-form-modal/user-form-modal.compon
 import { UserListComponent } from './user-list/user-list.component';
 
 import { SortByPipe } from './../../pipes/sort-by.pipe';
+import { UserViewModalComponent } from './user-view-modal/user-view-modal.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     UserFormModalComponent,
+    UserFormViewComponent,
     UserListComponent,
 
-    SortByPipe
+    SortByPipe,
+
+    UserViewModalComponent
   ],
   imports: [
     CommonModule,

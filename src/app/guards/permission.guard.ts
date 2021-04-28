@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class PermissionGuard implements CanActivate {
 
   routes = {
+    "/user": ["Superuser"],
     "/institution": ["Auxiliar", "Procurador"],
     "/institution/maintained": ["Auxiliar"],
     "/institution/maintainer": ["Auxiliar"],

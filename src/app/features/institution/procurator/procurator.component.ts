@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcuratorComponent implements OnInit {
 
+    item:any
+
   constructor() { }
 
   ngOnInit(): void {

@@ -7,9 +7,9 @@ export const environment = {
 };
 
 const api = {
-  url: "api.cee.sigilo.digital"
+  // url: "api.cee.sigilo.digital"
   // url: "https://cee-sistema-api-service-hxwfjtgxqq-uc.a.run.app"
-  // url: "http://localhost:8080"
+  url: "http://localhost:3000"
 }
 
 const app = {
